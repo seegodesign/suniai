@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQItem from '../components/FAQItem.astro';
+
+const faqs = [
+  {
+    category: 'Getting Started',
+    items: [
+      {
+        question: 'How do I know which service is right for me?',
+        answer: "If you're unsure, the best starting point is getting in touch. We'll have a brief conversation about where you are and what you're looking for, and from there we can figure out together what might serve you best. There's no pressure and no wrong answer.",
+      },
+      {
+        question: 'Do you offer a free introductory call?',
+        answer: 'Placeholder answer — describe your discovery call or consultation policy here. How long is it? What does it cover? Is it truly free?',
+      },
+      {
+        question: 'How many sessions will I need?',
+        answer: "Every person's journey is different. Some people feel a real shift in just a few sessions; others prefer ongoing support over months or years. We'll check in regularly to ensure the work is serving you.",
+      },
+    ],
+  },
+  {
+    category: 'Life Coaching & Somatic Work',
+    items: [
+      {
+        question: 'What is the difference between coaching and therapy?',
+        answer: "Coaching is generally forward-focused — oriented toward where you want to go and what's getting in the way. Therapy tends to be more oriented toward healing the past and working with clinical presentations. There is real overlap, and both are valid. If you're unsure which fits better, reach out and we can talk it through.",
+      },
+      {
+        question: 'What does "somatic" actually mean?',
+        answer: "'Somatic' simply refers to the body. Somatic work bridges the gap between what you know in your mind and what you feel in your body — helping you access and integrate experiences that purely cognitive approaches might miss.",
+      },
+      {
+        question: 'Do I need any experience with mindfulness or body-based practices?',
+        answer: "None at all. Everything we do in sessions starts from wherever you are. Curiosity is the only prerequisite.",
+      },
+    ],
+  },
+  {
+    category: 'Massage Therapy',
+    items: [
+      {
+        question: 'What should I expect in a massage session?',
+        answer: 'Placeholder answer — describe what happens in a typical session from arrival to departure. What do clients wear? What should they bring or prepare?',
+      },
+      {
+        question: 'Is massage therapy covered by health insurance?',
+        answer: 'Placeholder answer — describe your receipting practices and whether you are registered with any health funds or insurance providers.',
+      },
+    ],
+  },
+  {
+    category: 'Practical',
+    items: [
+      {
+        question: 'Where are you based?',
+        answer: 'Placeholder — add your location details here. In-person sessions are available at [address]. Online sessions are available globally via Zoom or Google Meet.',
+      },
+      {
+        question: 'What is your cancellation policy?',
+        answer: 'Placeholder — describe your cancellation and rescheduling policy here, including any notice periods or fees.',
+      },
+      {
+        question: 'What are your fees?',
+        answer: 'Placeholder — outline your pricing here, or note that pricing is available on request. You may wish to include package details.',
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="FAQ"
+  description="Answers to common questions about working with Suniai — coaching, somatic work, massage therapy, and more."
+>
+
+  <section class="bg-sand-light py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">FAQ</p>
+      <h1 class="font-serif text-5xl md:text-6xl text-bark mb-6">
+        Common questions.
+      </h1>
+      <p class="text-lg text-bark/70 leading-relaxed">
+        If you don't find what you're looking for, please <a href="/contact" class="text-terracotta hover:underline">get in touch</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 py-20 space-y-14">
+    {faqs.map(({ category, items }) => (
+      <div>
+        <h2 class="font-serif text-2xl text-bark mb-2">{category}</h2>
+        <div>
+          {items.map(({ question, answer }) => (
+            <FAQItem question={question} answer={answer} />
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <!-- CTA -->
+  <div class="max-w-3xl mx-auto px-6 pb-20 text-center">
+    <p class="text-bark/60 mb-5">Still have questions?</p>
+    <a
+      href="/contact"
+      class="inline-block px-8 py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-bark transition-colors"
+    >
+      Get in Touch
+    </a>
+  </div>
+
+</Layout>

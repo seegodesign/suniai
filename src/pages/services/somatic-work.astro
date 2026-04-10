@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Somatic Mind-Body Work"
+  description="Somatic and body-based work with Suniai — practices to listen inward, release tension, and cultivate presence."
+>
+
+  <section class="bg-sand-light py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Services</p>
+      <div class="text-4xl mb-5">🌿</div>
+      <h1 class="font-serif text-5xl md:text-6xl text-bark mb-6">Somatic Mind-Body Work</h1>
+      <p class="text-lg text-bark/70 leading-relaxed">
+        Learning the language your body has always been speaking.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-12">
+    <div class="md:col-span-2 space-y-6 text-bark/70 leading-relaxed">
+      <h2 class="font-serif text-3xl text-bark">What is somatic work?</h2>
+      <p>
+        Placeholder — explain what somatic work is in plain language. What does "somatic" mean? How does it differ from talk therapy or traditional coaching?
+      </p>
+      <p>
+        Describe the kind of practices and tools you use. What does a typical session feel like? What shifts do clients often notice?
+      </p>
+
+      <h3 class="font-serif text-2xl text-bark pt-4">What we work with</h3>
+      <ul class="space-y-2">
+        {[
+          'Body awareness and interoception',
+          'Breath and nervous system regulation',
+          'Movement and sensation tracking',
+          'Held patterns and somatic memory',
+          'Grounding and presence practices',
+          'Integration of emotions held in the body',
+        ].map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0"></span>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <h3 class="font-serif text-2xl text-bark pt-4">Who is this for?</h3>
+      <p>
+        Placeholder — describe the ideal person for this service. Perhaps those who feel "in their head" a lot, those with somatic symptoms of stress, or those wanting a deeper relationship with their body?
+      </p>
+    </div>
+
+    <aside class="space-y-6">
+      <div class="bg-sand rounded-2xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Session Details</p>
+        <dl class="space-y-3 text-sm text-bark/70">
+          <div><dt class="font-medium text-bark">Duration</dt><dd>60–90 minutes</dd></div>
+          <div><dt class="font-medium text-bark">Format</dt><dd>In-person or online</dd></div>
+          <div><dt class="font-medium text-bark">Frequency</dt><dd>Weekly or fortnightly</dd></div>
+          <div><dt class="font-medium text-bark">Investment</dt><dd>Placeholder pricing</dd></div>
+        </dl>
+      </div>
+      <a
+        href="/contact"
+        class="block w-full py-3.5 bg-terracotta text-cream font-medium rounded-full text-center hover:bg-bark transition-colors"
+      >
+        Book a Session
+      </a>
+      <a href="/services" class="block text-center text-sm text-bark/50 hover:text-terracotta transition-colors">
+        ← Back to all services
+      </a>
+    </aside>
+  </section>
+
+</Layout>

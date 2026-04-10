@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch with Suniai to book a session or ask a question about life coaching, somatic work, or massage therapy."
+>
+
+  <section class="bg-sand-light py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Contact</p>
+      <h1 class="font-serif text-5xl md:text-6xl text-bark mb-6">Let's talk.</h1>
+      <p class="text-lg text-bark/70 leading-relaxed">
+        Whether you have questions or you're ready to begin — reach out. Every journey starts with a conversation.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-5 gap-16">
+
+    <!-- Form -->
+    <div class="md:col-span-3">
+      <form
+        action="mailto:hello@suniai.com"
+        method="get"
+        enctype="text/plain"
+        class="space-y-6"
+      >
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-bark mb-1.5">Your name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-terracotta transition-colors"
+              placeholder="Jane Smith"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-bark mb-1.5">Your email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-terracotta transition-colors"
+              placeholder="jane@example.com"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="service" class="block text-sm font-medium text-bark mb-1.5">
+            I'm interested in…
+          </label>
+          <select
+            id="service"
+            name="service"
+            class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark focus:outline-none focus:border-terracotta transition-colors appearance-none"
+          >
+            <option value="">Select a service (optional)</option>
+            <option value="life-coaching">Life Coaching (1:1)</option>
+            <option value="group-coaching">Group Coaching / Workshop</option>
+            <option value="massage-therapy">Massage Therapy</option>
+            <option value="somatic-work">Somatic Mind-Body Work</option>
+            <option value="online-sessions">Online Sessions</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-bark mb-1.5">Message</label>
+          <textarea
+            id="message"
+            name="body"
+            rows="6"
+            required
+            class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-terracotta transition-colors resize-none"
+            placeholder="Tell me a little about what's bringing you here…"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-bark transition-colors"
+        >
+          Send Message
+        </button>
+
+        <p class="text-xs text-bark/40 text-center">
+          This will open your email client. Alternatively, email directly: <a href="mailto:hello@suniai.com" class="underline hover:text-terracotta">hello@suniai.com</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- Contact info sidebar -->
+    <aside class="md:col-span-2 space-y-8">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-3">Email</p>
+        <a href="mailto:hello@suniai.com" class="text-bark/70 hover:text-terracotta transition-colors text-sm">
+          hello@suniai.com
+        </a>
+      </div>
+
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-3">Sessions</p>
+        <p class="text-sm text-bark/70 leading-relaxed">
+          Available in-person and online. Contact to discuss availability and location details.
+        </p>
+      </div>
+
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-3">Response time</p>
+        <p class="text-sm text-bark/70 leading-relaxed">
+          I typically reply within 2–3 business days. If you don't hear back, please check your spam folder.
+        </p>
+      </div>
+
+      <div class="bg-sand rounded-2xl p-6">
+        <p class="font-serif text-lg text-bark mb-2">Not sure where to start?</p>
+        <p class="text-sm text-bark/60 leading-relaxed mb-4">
+          Mention in your message that you'd like a brief introductory call — no obligation, just a conversation.
+        </p>
+        <a href="/faq" class="text-sm text-terracotta font-medium hover:underline">
+          Read the FAQ →
+        </a>
+      </div>
+    </aside>
+  </section>
+
+</Layout>

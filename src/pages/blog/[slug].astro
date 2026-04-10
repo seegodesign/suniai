@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formattedDate = post.data.pubDate.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+
+  <!-- Post hero -->
+  <section class="bg-sand-light py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      {post.data.tags.length > 0 && (
+        <div class="flex flex-wrap justify-center gap-1.5 mb-5">
+          {post.data.tags.map((tag) => (
+            <span class="px-3 py-0.5 text-xs rounded-full bg-sand text-bark/60">{tag}</span>
+          ))}
+        </div>
+      )}
+      <h1 class="font-serif text-4xl md:text-5xl text-bark mb-5 leading-tight">
+        {post.data.title}
+      </h1>
+      <p class="text-bark/50 text-sm">{formattedDate}</p>
+    </div>
+  </section>
+
+  <!-- Post content -->
+  <article class="max-w-2xl mx-auto px-6 py-16 prose prose-bark">
+    <Content />
+  </article>
+
+  <!-- Back link -->
+  <div class="max-w-2xl mx-auto px-6 pb-20 border-t border-sand pt-8">
+    <a href="/blog" class="text-sm text-terracotta font-medium hover:underline">
+      ← Back to all writings
+    </a>
+  </div>
+
+</Layout>
+
+<style>
+  .prose {
+    color: rgb(var(--color-bark) / 0.75);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+  .prose h2 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    color: #3D2B1F;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .prose h3 {
+    font-family: var(--font-serif);
+    font-size: 1.375rem;
+    color: #3D2B1F;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .prose p {
+    margin-bottom: 1.25rem;
+  }
+  .prose ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+  .prose a {
+    color: #C4855A;
+    text-decoration: underline;
+  }
+  .prose strong {
+    color: #3D2B1F;
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,79 @@
+---
+const navLinks = [
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-sand">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Wordmark -->
+    <a href="/" class="font-serif text-2xl font-semibold tracking-wide text-bark hover:text-terracotta transition-colors">
+      Suniai
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+      {navLinks.map(({ label, href }) => (
+        <a
+          href={href}
+          class:list={[
+            'text-sm font-medium tracking-wide transition-colors hover:text-terracotta',
+            currentPath === href || currentPath.startsWith(href + '/')
+              ? 'text-terracotta'
+              : 'text-bark/70',
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="/contact"
+        class="ml-2 px-5 py-2 bg-terracotta text-cream text-sm font-medium rounded-full hover:bg-bark transition-colors"
+      >
+        Book a Session
+      </a>
+    </nav>
+
+    <!-- Mobile hamburger (CSS-only via checkbox) -->
+    <label class="md:hidden flex flex-col gap-1.5 cursor-pointer p-1" for="mobile-menu-toggle" aria-label="Toggle menu">
+      <span class="block w-6 h-0.5 bg-bark"></span>
+      <span class="block w-6 h-0.5 bg-bark"></span>
+      <span class="block w-4 h-0.5 bg-bark"></span>
+    </label>
+  </div>
+
+  <!-- Mobile menu (CSS-only toggle) -->
+  <input type="checkbox" id="mobile-menu-toggle" class="hidden peer" />
+  <nav
+    class="peer-checked:flex hidden flex-col gap-1 pb-4 px-6 md:hidden border-t border-sand bg-cream"
+    aria-label="Mobile navigation"
+  >
+    {navLinks.map(({ label, href }) => (
+      <a
+        href={href}
+        class:list={[
+          'py-2.5 text-sm font-medium border-b border-sand/50 transition-colors hover:text-terracotta',
+          currentPath === href || currentPath.startsWith(href + '/')
+            ? 'text-terracotta'
+            : 'text-bark/70',
+        ]}
+      >
+        {label}
+      </a>
+    ))}
+    <a
+      href="/contact"
+      class="mt-3 px-5 py-2.5 bg-terracotta text-cream text-sm font-medium rounded-full text-center hover:bg-bark transition-colors"
+    >
+      Book a Session
+    </a>
+  </nav>
+</header>

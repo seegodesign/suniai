@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Life Coaching"
+  description="One-on-one holistic life coaching with Suniai. Clarify your direction, dissolve old patterns, and build a life that truly fits."
+>
+
+  <section class="bg-sand-light py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Services</p>
+      <div class="text-4xl mb-5">🌱</div>
+      <h1 class="font-serif text-5xl md:text-6xl text-bark mb-6">Life Coaching (1:1)</h1>
+      <p class="text-lg text-bark/70 leading-relaxed">
+        A dedicated space to slow down, get clear, and move forward — at your pace, in your way.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-12">
+    <div class="md:col-span-2 space-y-6 text-bark/70 leading-relaxed">
+      <h2 class="font-serif text-3xl text-bark">What is life coaching with Suniai?</h2>
+      <p>
+        Placeholder description of the coaching approach. Describe the session format, what clients can expect, and the underlying philosophy you bring.
+      </p>
+      <p>
+        Add more context here — how do sessions typically unfold? What tools or modalities might you draw on? How does it feel different from therapy or consulting?
+      </p>
+
+      <h3 class="font-serif text-2xl text-bark pt-4">What we might explore together</h3>
+      <ul class="space-y-2">
+        {[
+          'Life transitions and big decisions',
+          'Purpose, meaning, and values alignment',
+          'Confidence and self-trust',
+          'Recurring patterns and blocks',
+          'Relationships and communication',
+          'Career clarity and creative direction',
+        ].map((item) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0"></span>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <h3 class="font-serif text-2xl text-bark pt-4">Who is this for?</h3>
+      <p>
+        Placeholder — describe the ideal person for this service. What stage of life might they be in? What might they be feeling? What are they hoping to change?
+      </p>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="space-y-6">
+      <div class="bg-sand rounded-2xl p-6">
+        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Session Details</p>
+        <dl class="space-y-3 text-sm text-bark/70">
+          <div><dt class="font-medium text-bark">Duration</dt><dd>60–90 minutes</dd></div>
+          <div><dt class="font-medium text-bark">Format</dt><dd>In-person or online</dd></div>
+          <div><dt class="font-medium text-bark">Frequency</dt><dd>Weekly or fortnightly</dd></div>
+          <div><dt class="font-medium text-bark">Investment</dt><dd>Placeholder pricing</dd></div>
+        </dl>
+      </div>
+      <a
+        href="/contact"
+        class="block w-full py-3.5 bg-terracotta text-cream font-medium rounded-full text-center hover:bg-bark transition-colors"
+      >
+        Book a Session
+      </a>
+      <a href="/services" class="block text-center text-sm text-bark/50 hover:text-terracotta transition-colors">
+        ← Back to all services
+      </a>
+    </aside>
+  </section>
+
+</Layout>

@@ -1,0 +1,145 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="About"
+  description="Meet Suniai — holistic life coach, mind-body practitioner, and licensed massage therapist."
+>
+  <!-- Page hero -->
+  <section class="bg-sand-light py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p
+        class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4"
+      >
+        About
+      </p>
+      <h1 class="font-serif text-5xl md:text-6xl text-bark">
+        The person behind the practice.
+      </h1>
+    </div>
+  </section>
+
+  <!-- Bio section -->
+  <section
+    class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-5 gap-16 items-start"
+  >
+    <!-- Portrait placeholder -->
+    <div class="md:col-span-2">
+      <img
+        src="/capri.jpg"
+        alt="Portrait of Capri"
+        class="aspect-[3/4] w-full object-cover rounded-2xl"
+      />
+    </div>
+
+    <!-- Bio text -->
+    <div class="md:col-span-3">
+      <h2 class="font-serif text-3xl text-bark mb-6">Aloha, my name is Capri.</h2>
+      <div class="space-y-4 text-bark/70 leading-relaxed">
+        <p>
+          Placeholder bio paragraph one — tell your story here. Where did you
+          grow up? What brought you to this work? What was the turning point
+          that led you to become a practitioner?
+        </p>
+        <p>
+          Placeholder bio paragraph two — describe your approach and philosophy.
+          What do you believe about the connection between the mind and body?
+          How does your work differ from conventional coaching or therapy?
+        </p>
+        <p>
+          Placeholder bio paragraph three — what do you love most about this
+          work? What does a typical client experience look like, and what do you
+          hope they walk away feeling?
+        </p>
+      </div>
+
+      <!-- Credentials -->
+      <div class="mt-10">
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4"
+        >
+          Credentials & Training
+        </p>
+        <ul class="space-y-2 text-sm text-bark/70">
+          {
+            [
+              "Certified Holistic Life Coach — [Institution Name], [Year]",
+              "Licensed Massage Therapist — [Licensing Body], [Year]",
+              "Somatic Practitioner Training — [Program Name], [Year]",
+              "Mind-Body Practitioner Certification — [Institution], [Year]",
+              "Additional training placeholder — [Details]",
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0" />
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <a
+        href="/contact"
+        class="inline-block mt-10 px-8 py-3 bg-terracotta text-cream font-medium rounded-full hover:bg-bark transition-colors"
+      >
+        Work with Me
+      </a>
+    </div>
+  </section>
+
+  <!-- Philosophy / values -->
+  <section class="bg-sand-light py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <p
+        class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-3 text-center"
+      >
+        My Philosophy
+      </p>
+      <h2 class="font-serif text-4xl text-bark text-center mb-14">
+        The values that guide my work.
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          [
+            {
+              value: "Body as teacher",
+              detail:
+                "The body holds wisdom that the thinking mind cannot access. I help you learn to listen.",
+            },
+            {
+              value: "Whole-person care",
+              detail:
+                "You are not a problem to be solved, but a whole, complex, beautiful human to be witnessed.",
+            },
+            {
+              value: "Slowness as practice",
+              detail:
+                "Deep change rarely happens quickly. I create spaciousness for your process to unfold in its own time.",
+            },
+            {
+              value: "Non-judgment",
+              detail:
+                "This is a space free from should. What you feel, think, and experience is valid — always.",
+            },
+            {
+              value: "Integration",
+              detail:
+                "Insights are only as valuable as their integration into daily life. We build bridges between session and the everyday.",
+            },
+            {
+              value: "Nervous system first",
+              detail:
+                "Safety is the foundation of all real growth. We always work with regulated care, not urgency.",
+            },
+          ].map(({ value, detail }) => (
+            <div class="bg-cream rounded-2xl p-6 border border-sand">
+              <h3 class="font-serif text-lg text-bark mb-3">{value}</h3>
+              <p class="text-sm text-bark/60 leading-relaxed">{detail}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

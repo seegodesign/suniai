@@ -1,0 +1,51 @@
+---
+interface Props {
+  name: string;
+  quote: string;
+  service: string;
+  featured?: boolean;
+}
+
+const { name, quote, service, featured = false } = Astro.props;
+---
+
+<figure
+  class:list={[
+    'rounded-2xl p-7 border flex flex-col',
+    featured
+      ? 'bg-bark text-cream border-bark'
+      : 'bg-cream text-bark border-sand',
+  ]}
+>
+  <svg
+    class:list={['w-8 h-8 mb-5', featured ? 'text-terracotta' : 'text-terracotta/40']}
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path d="M14.017 21v-7.391C14.017 10.339 16.824 7.667 21 7v1.853c-2.312.552-3.983 2.1-3.983 4.459V21h-2.999zM3 21v-7.391C3 10.339 5.806 7.667 9.983 7v1.853C7.671 9.405 6 10.953 6 13.312V21H3z"/>
+  </svg>
+  <blockquote
+    class:list={[
+      'font-serif text-lg leading-relaxed italic flex-1 mb-6',
+      featured ? 'text-cream' : 'text-bark',
+    ]}
+  >
+    "{quote}"
+  </blockquote>
+  <figcaption class="flex items-center justify-between">
+    <span class:list={['text-sm font-medium', featured ? 'text-cream/80' : 'text-bark/70']}>
+      — {name}
+    </span>
+    <span
+      class:list={[
+        'text-xs px-3 py-0.5 rounded-full',
+        featured
+          ? 'bg-terracotta/20 text-terracotta'
+          : 'bg-sand text-bark/50',
+      ]}
+    >
+      {service}
+    </span>
+  </figcaption>
+</figure>
