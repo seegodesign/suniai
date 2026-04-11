@@ -7,6 +7,10 @@ import markdoc from '@astrojs/markdoc';
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/admin': '/admin/index.html',
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },

@@ -50,4 +50,21 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, faq, services };
+const home = defineCollection({
+  loader: glob({ pattern: 'home.json', base: './src/content' }),
+  schema: z.object({
+    heroEyebrow: z.string(),
+    heroHeading: z.string(),
+    heroBody: z.string(),
+    heroCta1Label: z.string(),
+    heroCta1Href: z.string(),
+    heroCta2Label: z.string(),
+    heroCta2Href: z.string(),
+    aboutHeading: z.string(),
+    aboutBody1: z.string(),
+    aboutBody2: z.string(),
+    servicesHeading: z.string(),
+  }),
+});
+
+export const collections = { blog, testimonials, faq, services, home };

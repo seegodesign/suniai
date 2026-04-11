@@ -1,24 +1,20 @@
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
 @import '@fontsource/inter/600.css';
-@import '@fontsource/playfair-display/400.css';
-@import '@fontsource/playfair-display/400-italic.css';
-@import '@fontsource/playfair-display/600.css';
-@import '@fontsource/playfair-display/600-italic.css';
-@import '@fontsource/playfair-display/700.css';
-@import '@fontsource/playfair-display/700-italic.css';
+@import '@fontsource/tangerine/400.css';
+@import '@fontsource/tangerine/700.css';
 @import "tailwindcss";
 
 @theme {
   --color-cream: #FAF7F2;
   --color-bark: #48272d;
-  --color-dark-rose: #875e5e;
+  --color-dark-rose: #b05f5f;
   --color-rose: #df9393;
   --color-sage: #8B9E6E;
   --color-sand: #E8DDD0;
   --color-sand-light: #F2EDE6;
 
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-tangerine: "Tangerine", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
@@ -31,7 +27,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
+    font-family: var(--font-tangerine);
     line-height: 1.2;
   }
 

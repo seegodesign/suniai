@@ -2,7 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import capriPortrait from "../assets/capri.jpg";
-import { getCollection, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
+
+const homeEntry = await getEntry('home', 'home');
+const home = homeEntry!.data;
 
 const ORDER = [
   "life-coaching",
@@ -44,38 +47,37 @@ const testimonialSlides = await Promise.all(
   <!-- Hero -->
   <section
     class="relative min-h-[93vh] flex items-center justify-center overflow-hidden bg-cover bg-center bg-fixed"
-    style="background-image: url(https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?q=80&w=1170&auto=format&fit=crop)"
+    style="background-image: url(https://images.unsplash.com/photo-1562012266-d7b721321ff2?q=80&w=1170&auto=format&fit=crop)"
   >
     <!-- tinted overlay -->
-    <div class="absolute inset-0 bg-bark/30"></div>
+    <div class="absolute inset-0 bg-dark-rose/70"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
       <p
         class="text-sm font-medium tracking-[0.2em] uppercase text-white mb-6 opacity-50"
       >
-        Holistic Life Coaching · Mind-Body Work · Massage Therapy
+        {home.heroEyebrow}
       </p>
-      <h1 class="font-serif text-5xl md:text-7xl text-cream leading-tight mb-8">
-        Return to <em class="text-rose">yourself.</em>
+      <h1 class="font-tangerine text-5xl md:text-8xl text-cream leading-tight mb-8">
+        {home.heroHeading}
       </h1>
       <p
-        class="text-lg md:text-xl text-cream/80 leading-relaxed max-w-xl mx-auto mb-10"
+        class="text-lg text-cream/80 leading-relaxed max-w-xl mx-auto mb-10"
       >
-        Suniai offers a nurturing space to reconnect with your body, quiet your
-        mind, and step into the life you most want to live.
+        {home.heroBody}
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/contact"
-          class="px-8 py-3.5 bg-dark-rose text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
+          href={home.heroCta1Href}
+          class="px-8 py-3.5 bg-dark-rose/50 border border-cream/50 text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
         >
-          Book a Session
+          {home.heroCta1Label}
         </a>
         <a
-          href="/services"
+          href={home.heroCta2Href}
           class="px-8 py-3.5 border border-cream/50 text-cream font-medium rounded-full hover:border-cream hover:bg-cream/10 transition-colors"
         >
-          Explore Services
+          {home.heroCta2Label}
         </a>
       </div>
     </div>
@@ -91,18 +93,14 @@ const testimonialSlides = await Promise.all(
       >
         About Suniai
       </p>
-      <h2 class="font-serif text-4xl md:text-5xl text-bark mb-6">
-        A gentle guide on the path back to wholeness.
+      <h2 class="font-tangerine text-4xl md:text-5xl text-bark mb-6">
+        {home.aboutHeading}
       </h2>
       <p class="text-bark/70 leading-relaxed mb-4">
-        Suniai is a certified holistic life coach, mind-body practitioner, and
-        licensed massage therapist whose work sits at the intersection of the
-        somatic and the sacred — bringing the wisdom of the body into every
-        conversation.
+        {home.aboutBody1}
       </p>
       <p class="text-bark/70 leading-relaxed mb-8">
-        Placeholder bio text — add your background, training, and philosophy
-        here.
+        {home.aboutBody2}
       </p>
       <a
         href="/about"
@@ -124,14 +122,13 @@ const testimonialSlides = await Promise.all(
       </a>
     </div>
     <!-- Portrait -->
-    <div
-      class="aspect-[3/4] bg-sand rounded-2xl flex items-center justify-center text-bark/30"
-    >
+    <div class="relative aspect-[3/4] rounded-2xl overflow-hidden m-10">
       <Image
         src={capriPortrait}
         alt="Portrait of Capri"
-        class="aspect-[3/4] w-full object-cover rounded-2xl"
+        class="absolute inset-0 w-full h-full object-cover"
       />
+      <div class="absolute inset-0 bg-rose/50 mix-blend-lighten"></div>
     </div>
   </section>
 
@@ -150,7 +147,7 @@ const testimonialSlides = await Promise.all(
       >
         What I Offer
       </p>
-      <h2 class="font-serif text-4xl text-bark text-center mb-14">Services</h2>
+      <h2 class="font-tangerine text-4xl text-bark text-center mb-14">{home.servicesHeading}</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           homeServices.map(({ title, icon, desc, href }) => (
@@ -158,8 +155,7 @@ const testimonialSlides = await Promise.all(
               href={href}
               class="group bg-cream rounded-2xl p-7 border border-sand hover:border-dark-rose hover:shadow-md transition-all"
             >
-              <div class="text-3xl mb-4">{icon}</div>
-              <h3 class="font-serif text-xl text-bark mb-3 group-hover:text-dark-rose transition-colors">
+              <h3 class="font-tangerine text-4xl text-bark mb-3 group-hover:text-dark-rose transition-colors">
                 {title}
               </h3>
               <p class="text-sm text-bark/60 leading-relaxed">{desc}</p>
@@ -170,7 +166,7 @@ const testimonialSlides = await Promise.all(
           href="/services"
           class="group bg-dark-rose rounded-2xl p-7 flex flex-col justify-end text-cream"
         >
-          <h3 class="font-serif text-xl mb-3">View all services</h3>
+          <h3 class="font-tangerine text-4xl mb-3">View all services</h3>
           <span
             class="text-sm opacity-80 group-hover:opacity-100 transition-opacity flex items-center gap-2"
           >
@@ -183,17 +179,6 @@ const testimonialSlides = await Promise.all(
 
   <!-- Pull-quote testimonial slider -->
   <section class="max-w-3xl mx-auto px-6 py-24 text-center">
-    <svg
-      class="w-10 h-10 text-dark-rose/30 mx-auto mb-8"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path
-        d="M14.017 21v-7.391C14.017 10.339 16.824 7.667 21 7v1.853c-2.312.552-3.983 2.1-3.983 4.459V21h-2.999zM3 21v-7.391C3 10.339 5.806 7.667 9.983 7v1.853C7.671 9.405 6 10.953 6 13.312V21H3z"
-      ></path>
-    </svg>
-
     <div id="quote-slider" class="grid mb-8">
       {
         testimonialSlides.map(({ data, Content }, i) => (
@@ -207,10 +192,10 @@ const testimonialSlides = await Promise.all(
             ]}
           >
             <blockquote
-              class="font-serif text-2xl md:text-3xl text-bark leading-relaxed italic mb-6 overflow-hidden [&>p]:inline"
+              class="text-2xl md:text-3xl text-bark leading-relaxed italic mb-6 overflow-hidden [&>p]:inline"
               style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;"
             >
-              <Content />
+              &ldquo;<Content />
             </blockquote>
             <div class="flex items-center justify-center gap-3">
               {data.photo && (
@@ -305,7 +290,9 @@ const testimonialSlides = await Promise.all(
   </script>
 
   <!-- CTA banner -->
-  <section class="relative text-cream overflow-hidden min-h-[70vh] flex items-center justify-center">
+  <section
+    class="relative text-cream overflow-hidden min-h-[70vh] flex items-center justify-center"
+  >
     <Image
       src="https://images.unsplash.com/photo-1682695795931-a546abdb6733?q=80&w=1170&auto=format&fit=crop"
       alt=""
@@ -316,7 +303,7 @@ const testimonialSlides = await Promise.all(
     />
     <div class="absolute inset-0 bg-bark/60"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center">
-      <h2 class="font-serif text-4xl md:text-5xl mb-6">Ready to begin?</h2>
+      <h2 class="font-tangerine text-4xl md:text-5xl mb-6">Ready to begin?</h2>
       <p class="text-cream/70 text-lg mb-10 leading-relaxed">
         Whether you're looking for one-on-one coaching, bodywork, or a gentle
         place to start — reach out. Every journey begins with a single

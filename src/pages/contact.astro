@@ -1,21 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PageHero from '../components/PageHero.astro';
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
 ---
 
 <Layout
   title="Contact"
   description="Get in touch with Suniai to book a session or ask a question about life coaching, somatic work, or massage therapy."
 >
-
   <PageHero
     eyebrow="Contact"
     heading="Let's talk."
     subheading="Whether you have questions or you're ready to begin — reach out. Every journey starts with a conversation."
+    image="https://images.unsplash.com/photo-1508624217470-5ef0f947d8be?q=80&w=1170&auto=format&fit=crop"
   />
 
   <section class="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-5 gap-16">
-
     <!-- Form -->
     <div class="md:col-span-3">
       <form
@@ -26,7 +25,9 @@ import PageHero from '../components/PageHero.astro';
       >
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
-            <label for="name" class="block text-sm font-medium text-bark mb-1.5">Your name</label>
+            <label for="name" class="block text-sm font-medium text-bark mb-1.5"
+              >Your name</label
+            >
             <input
               type="text"
               id="name"
@@ -38,7 +39,11 @@ import PageHero from '../components/PageHero.astro';
             />
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-bark mb-1.5">Your email</label>
+            <label
+              for="email"
+              class="block text-sm font-medium text-bark mb-1.5"
+              >Your email</label
+            >
             <input
               type="email"
               id="email"
@@ -52,7 +57,10 @@ import PageHero from '../components/PageHero.astro';
         </div>
 
         <div>
-          <label for="service" class="block text-sm font-medium text-bark mb-1.5">
+          <label
+            for="service"
+            class="block text-sm font-medium text-bark mb-1.5"
+          >
             I'm interested in…
           </label>
           <select
@@ -71,7 +79,10 @@ import PageHero from '../components/PageHero.astro';
         </div>
 
         <div>
-          <label for="message" class="block text-sm font-medium text-bark mb-1.5">Message</label>
+          <label
+            for="message"
+            class="block text-sm font-medium text-bark mb-1.5">Message</label
+          >
           <textarea
             id="message"
             name="body"
@@ -90,7 +101,10 @@ import PageHero from '../components/PageHero.astro';
         </button>
 
         <p class="text-xs text-bark/40 text-center">
-          This will open your email client. Alternatively, email directly: <a href="mailto:hello@suniai.one" class="underline hover:text-dark-rose">hello@suniai.one</a>
+          This will open your email client. Alternatively, email directly: <a
+            href="mailto:hello@suniai.one"
+            class="underline hover:text-dark-rose">hello@suniai.one</a
+          >
         </p>
       </form>
     </div>
@@ -98,36 +112,58 @@ import PageHero from '../components/PageHero.astro';
     <!-- Contact info sidebar -->
     <aside class="md:col-span-2 space-y-8">
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3">Email</p>
-        <a href="mailto:hello@suniai.one" class="text-bark/70 hover:text-dark-rose transition-colors text-sm">
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3"
+        >
+          Email
+        </p>
+        <a
+          href="mailto:hello@suniai.one"
+          class="text-bark/70 hover:text-dark-rose transition-colors text-sm"
+        >
           hello@suniai.one
         </a>
       </div>
 
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3">Sessions</p>
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3"
+        >
+          Sessions
+        </p>
         <p class="text-sm text-bark/70 leading-relaxed">
-          Available in-person and online. Contact to discuss availability and location details.
+          Available in-person and online. Contact to discuss availability and
+          location details.
         </p>
       </div>
 
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3">Response time</p>
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3"
+        >
+          Response time
+        </p>
         <p class="text-sm text-bark/70 leading-relaxed">
-          I typically reply within 2–3 business days. If you don't hear back, please check your spam folder.
+          I typically reply within 2–3 business days. If you don't hear back,
+          please check your spam folder.
         </p>
       </div>
 
       <div class="bg-sand rounded-2xl p-6">
-        <p class="font-serif text-lg text-bark mb-2">Not sure where to start?</p>
-        <p class="text-sm text-bark/60 leading-relaxed mb-4">
-          Mention in your message that you'd like a brief introductory call — no obligation, just a conversation.
+        <p class="font-tangerine text-4xl text-bark mb-2">
+          Not sure where to start?
         </p>
-        <a href="/faq" class="text-sm text-dark-rose font-medium hover:underline">
+        <p class="text-sm text-bark/60 leading-relaxed mb-4">
+          Mention in your message that you'd like a brief introductory call — no
+          obligation, just a conversation.
+        </p>
+        <a
+          href="/faq"
+          class="text-sm text-dark-rose font-medium hover:underline"
+        >
           Read the FAQ →
         </a>
       </div>
     </aside>
   </section>
-
 </Layout>

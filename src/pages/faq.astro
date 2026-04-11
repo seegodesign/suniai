@@ -1,13 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import FAQItem from '../components/FAQItem.astro';
-import PageHero from '../components/PageHero.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import FAQItem from "../components/FAQItem.astro";
+import PageHero from "../components/PageHero.astro";
+import { getCollection } from "astro:content";
 
-const allItems = await getCollection('faq');
+const allItems = await getCollection("faq");
 
 // Group by category, sorted by order within each category
-const categoryOrder = ['Getting Started', 'Life Coaching & Somatic Work', 'Massage Therapy', 'Practical'];
+const categoryOrder = [
+  "Getting Started",
+  "Life Coaching & Somatic Work",
+  "Massage Therapy",
+  "Practical",
+];
 
 const faqs = categoryOrder
   .map((category) => ({
@@ -23,24 +28,29 @@ const faqs = categoryOrder
   title="FAQ"
   description="Answers to common questions about working with Suniai — coaching, somatic work, massage therapy, and more."
 >
-
   <PageHero
     eyebrow="FAQ"
     heading="Common questions."
-    subheading='If you don&apos;t find what you&apos;re looking for, please <a href="/contact" class="text-dark-rose hover:underline">get in touch</a>.'
+    subheading='If you don&apos;t find what you&apos;re looking for, please get in touch.'
+    image="https://images.unsplash.com/photo-1473221326025-9183b464bb7e?q=80&w=1074&auto=format&fit=crop"
   />
 
   <section class="max-w-3xl mx-auto px-6 py-20 space-y-14">
-    {faqs.map(({ category, items }) => (
-      <div>
-        <h2 class="font-serif text-2xl text-bark mb-2">{category}</h2>
+    {
+      faqs.map(({ category, items }) => (
         <div>
-          {items.map((item) => (
-            <FAQItem question={item.data.question} answer={item.data.answer} />
-          ))}
+          <h2 class="text-4xl text-bark mb-2">{category}</h2>
+          <div>
+            {items.map((item) => (
+              <FAQItem
+                question={item.data.question}
+                answer={item.data.answer}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </section>
 
   <!-- CTA -->
@@ -53,5 +63,4 @@ const faqs = categoryOrder
       Get in Touch
     </a>
   </div>
-
 </Layout>

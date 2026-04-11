@@ -51,18 +51,18 @@ const {
     <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
       <p class:list={['text-xs font-semibold uppercase tracking-widest mb-4', heroImage ? 'text-dark-rose' : 'text-dark-rose']}>Services</p>
       <div class="text-4xl mb-5">{icon}</div>
-      <h1 class:list={['font-serif text-5xl md:text-6xl mb-6', heroImage ? 'text-cream' : 'text-bark']}>{title}</h1>
+      <h1 class:list={['font-tangerine text-5xl md:text-6xl mb-6', heroImage ? 'text-cream' : 'text-bark']}>{title}</h1>
       <p class:list={['text-lg leading-relaxed', heroImage ? 'text-cream/80' : 'text-bark/70']}>{tagline}</p>
     </div>
   </section>
 
   <section class="max-w-4xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-12">
     <div class="md:col-span-2 space-y-6 text-bark/70 leading-relaxed">
-      <h2 class="font-serif text-3xl text-bark">{descriptionHeading}</h2>
+      <h2 class="font-tangerine text-3xl text-bark">{descriptionHeading}</h2>
       <p>{description1}</p>
       <p>{description2}</p>
 
-      <h3 class="font-serif text-2xl text-bark pt-4">{itemsHeading}</h3>
+      <h3 class="font-tangerine text-2xl text-bark pt-4">{itemsHeading}</h3>
       <ul class="space-y-2">
         {items.map((item) => (
           <li class="flex items-start gap-3">
@@ -72,7 +72,7 @@ const {
         ))}
       </ul>
 
-      <h3 class="font-serif text-2xl text-bark pt-4">Who is this for?</h3>
+      <h3 class="font-tangerine text-2xl text-bark pt-4">Who is this for?</h3>
       <p>{whoIsThisFor}</p>
     </div>
 

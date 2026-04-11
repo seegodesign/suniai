@@ -4,8 +4,6 @@ service: Womb Clearing
 featured: false
 photo: /images/jenna.jpeg
 ---
-I blindly scheduled a womb healing back in February for my trip to Kauai totally unsure of what to expect. I was coming off of an IVF cycle and was only three months out from the loss of my best friend. My womb was swirling with grief, fear, hope, and deeply desiring my trust.
-
 When I met Capri, the simplest way I could describe the sensation of my soul is with the words “**instant safety**”. It’s rare in this life to feel fully seen without the need for words and the two hours that followed transported me to an alternate universe. One where it was safe to let go, safe to express, and mostly safe to heal.
 
 I’m now 22 weeks pregnant with a baby boy- the result of our very first embryo transfer after trying to conceive for years. I have traveled back to Kauai (from South Carolina) twice just in this calendar year to melt into Capri’s massage table. If that doesn’t speak to her magnificence.. I don’t know what does.

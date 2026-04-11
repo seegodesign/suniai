@@ -41,7 +41,7 @@ const formattedDate = post.data.pubDate.toLocaleDateString('en-GB', {
           ))}
         </div>
       )}
-      <h1 class="font-serif text-4xl md:text-5xl text-bark mb-5 leading-tight">
+      <h1 class="font-tangerine text-4xl md:text-6xl text-bark mb-5 leading-tight">
         {post.data.title}
       </h1>
       <p class="text-bark/50 text-sm">{formattedDate}</p>
@@ -62,21 +62,21 @@ const formattedDate = post.data.pubDate.toLocaleDateString('en-GB', {
 
 </Layout>
 
-<style>
+<style is:global>
   .prose {
     color: rgb(var(--color-bark) / 0.75);
     font-size: 1.0625rem;
     line-height: 1.8;
   }
   .prose h2 {
-    font-family: var(--font-serif);
-    font-size: 1.75rem;
+    font-family: var(--font-tangerine);
+    font-size: 2.75rem;
     color: #3D2B1F;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
   }
   .prose h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-tangerine);
     font-size: 1.375rem;
     color: #3D2B1F;
     margin-top: 2rem;

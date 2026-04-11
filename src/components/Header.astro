@@ -1,6 +1,6 @@
 ---
-// import { Image } from "astro:assets";
-// import suniaiLogo from "../assets/suniai-logo.png";
+import { Image } from "astro:assets";
+import suniaiLogo from "../assets/suniai-logo.png";
 import { getCollection } from 'astro:content';
 
 const ORDER = ['life-coaching', 'group-coaching', 'massage-therapy', 'somatic-work', 'womb-clearing', 'online-sessions'];
@@ -26,16 +26,14 @@ const currentPath = Astro.url.pathname;
 >
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
     <!-- Wordmark -->
-    <a href="/" class="text-dark-rose font-serif text-4xl font-semibold tracking-wide text-bark hover:text-rose transition-colors">
-      Suniai
+    <a href="/" class="hover:opacity-80 transition-opacity">
+      <Image
+        src={suniaiLogo}
+        alt="Suniai"
+        width={240}
+        height={80}
+      />
     </a>
-    <!-- <Image
-      src={suniaiLogo}
-      alt="Suniai"
-      width={240}
-      height={60}
-      class="hover:opacity-80 transition-opacity"
-    /> -->
 
     <!-- Desktop nav -->
     <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">

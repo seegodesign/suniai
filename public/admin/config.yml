@@ -7,12 +7,30 @@ backend:
 
 # Uncomment the two lines below while editing locally (npm run dev)
 # — remove them before deploying
-# local_backend: true
+local_backend: true
 
 media_folder: public/images
 public_folder: /images
 
 collections:
+  - name: home
+    label: Home Page
+    files:
+      - name: home
+        label: Home Page Content
+        file: src/content/home.json
+        fields:
+          - { label: Hero eyebrow text, name: heroEyebrow, widget: string }
+          - { label: Hero heading, name: heroHeading, widget: string }
+          - { label: Hero body text, name: heroBody, widget: text }
+          - { label: 'CTA button 1 — label', name: heroCta1Label, widget: string }
+          - { label: 'CTA button 1 — link', name: heroCta1Href, widget: string }
+          - { label: 'CTA button 2 — label', name: heroCta2Label, widget: string }
+          - { label: 'CTA button 2 — link', name: heroCta2Href, widget: string }
+          - { label: About heading, name: aboutHeading, widget: string }
+          - { label: About paragraph 1, name: aboutBody1, widget: text }
+          - { label: About paragraph 2, name: aboutBody2, widget: text }
+          - { label: Services section heading, name: servicesHeading, widget: string }
   - name: blog
     label: Blog Posts
     folder: src/content/blog

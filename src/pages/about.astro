@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import { Image } from "astro:assets";
-import capriPortrait from "../assets/capri3.jpg";
+import capriPortrait from "../assets/capri4.jpg";
 ---
 
 <Layout
@@ -31,7 +31,7 @@ import capriPortrait from "../assets/capri3.jpg";
 
     <!-- Bio text -->
     <div class="md:col-span-3">
-      <h2 class="font-serif text-3xl text-bark mb-6">
+      <h2 class="font-tangerine text-6xl text-bark mb-6">
         Aloha, my name is Capri.
       </h2>
       <div class="space-y-4 text-bark/70 leading-relaxed">
@@ -62,9 +62,15 @@ import capriPortrait from "../assets/capri3.jpg";
         <ul class="space-y-2 text-sm text-bark/70">
           {
             [
+              "Temple of the Rose Initiation — Pisac, Peru 2014",
+              "Ancient Thai Massage Training — Pisac, Peru 2014",
+              "Usui Reiki Master Teacher Certification — Portland, OR 2014",
+              "Licensed Massage Therapist — East West College of the Healing Arts, 2017",
+              "Sacred Pelvic Healing Massage Training - Portland, OR 2018",
+              "Kundalini Yoga Teacher Certification — Hawaii 2021",
+              "Mana Lomi Level 3 Certification — Kona, Hawaii 2024",
               "Certified Holistic Life Coach — MindBodyFood Institute, 2026",
-              "Mind-Body Practitioner Certification — MindBodyFood Institute, 2026",
-              "Licensed Massage Therapist — State of Hawaii, 2020"
+              "Certified Mind-Body Practitioner — MindBodyFood Institute, 2026",
             ].map((item) => (
               <li class="flex items-start gap-3">
                 <span class="mt-1 w-1.5 h-1.5 rounded-full bg-dark-rose shrink-0" />
@@ -92,7 +98,7 @@ import capriPortrait from "../assets/capri3.jpg";
       >
         My Philosophy
       </p>
-      <h2 class="font-serif text-4xl text-bark text-center mb-14">
+      <h2 class="font-tangerine text-6xl text-bark text-center mb-14">
         The values that guide my work.
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -130,7 +136,7 @@ import capriPortrait from "../assets/capri3.jpg";
             },
           ].map(({ value, detail }) => (
             <div class="bg-cream rounded-2xl p-6 border border-sand">
-              <h3 class="font-serif text-lg text-bark mb-3">{value}</h3>
+              <h3 class="font-tangerine text-4xl text-bark mb-3">{value}</h3>
               <p class="text-sm text-bark/60 leading-relaxed">{detail}</p>
             </div>
           ))
