@@ -1,0 +1,25 @@
+{
+  "title": "Massage Therapy",
+  "icon": "🤲",
+  "heroImage": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874",
+  "tagline": "Therapeutic touch that meets your body exactly where it is.",
+  "descriptionHeading": "About the massage work",
+  "description1": "Placeholder description — describe your massage philosophy. How do you approach the body? What makes your sessions different from a standard spa massage?",
+  "description2": "Describe how sessions are tailored. Do you integrate any breath, somatic awareness, or intention-setting into the session?",
+  "itemsHeading": "Techniques & modalities",
+  "items": [
+    "Swedish/relaxation massage",
+    "Deep tissue work",
+    "Myofascial release",
+    "Trigger point therapy",
+    "Lymphatic drainage",
+    "Restorative / nervous-system focused touch"
+  ],
+  "whoIsThisFor": "Placeholder — describe who benefits most. People with chronic tension? Those going through stress? Those wanting to reconnect with their body?",
+  "sessionDetails": [
+    { "label": "Duration", "value": "60 or 90 minutes" },
+    { "label": "Format", "value": "In-person only" },
+    { "label": "Location", "value": "Practice address TBC" },
+    { "label": "Investment", "value": "Placeholder pricing" }
+  ]
+}

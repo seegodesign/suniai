@@ -1,0 +1,25 @@
+{
+  "title": "Life Coaching (1:1)",
+  "icon": "🌱",
+  "heroImage": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+  "tagline": "A dedicated space to slow down, get clear, and move forward — at your pace, in your way.",
+  "descriptionHeading": "What is life coaching with Suniai?",
+  "description1": "Placeholder description of the coaching approach. Describe the session format, what clients can expect, and the underlying philosophy you bring.",
+  "description2": "Add more context here — how do sessions typically unfold? What tools or modalities might you draw on? How does it feel different from therapy or consulting?",
+  "itemsHeading": "What we might explore together",
+  "items": [
+    "Life transitions and big decisions",
+    "Purpose, meaning, and values alignment",
+    "Confidence and self-trust",
+    "Recurring patterns and blocks",
+    "Relationships and communication",
+    "Career clarity and creative direction"
+  ],
+  "whoIsThisFor": "Placeholder — describe the ideal person for this service. What stage of life might they be in? What might they be feeling? What are they hoping to change?",
+  "sessionDetails": [
+    { "label": "Duration", "value": "60–90 minutes" },
+    { "label": "Format", "value": "In-person or online" },
+    { "label": "Frequency", "value": "Weekly or fortnightly" },
+    { "label": "Investment", "value": "Placeholder pricing" }
+  ]
+}

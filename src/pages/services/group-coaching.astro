@@ -1,76 +1,21 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import ServicePage from '../../components/ServicePage.astro';
+import { getEntry } from 'astro:content';
+
+const service = await getEntry('services', 'group-coaching');
+const { title, icon, heroImage, tagline, descriptionHeading, description1, description2, itemsHeading, items, whoIsThisFor, sessionDetails } = service.data;
 ---
 
-<Layout
-  title="Group Coaching & Workshops"
-  description="Group coaching containers and workshops with Suniai — collective healing, shared inquiry, and community support."
->
-
-  <section class="bg-sand-light py-24">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Services</p>
-      <div class="text-4xl mb-5">✨</div>
-      <h1 class="font-serif text-5xl md:text-6xl text-bark mb-6">Group Coaching & Workshops</h1>
-      <p class="text-lg text-bark/70 leading-relaxed">
-        Collective containers where shared presence multiplies the healing.
-      </p>
-    </div>
-  </section>
-
-  <section class="max-w-4xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-12">
-    <div class="md:col-span-2 space-y-6 text-bark/70 leading-relaxed">
-      <h2 class="font-serif text-3xl text-bark">The power of group work</h2>
-      <p>
-        Placeholder description — describe what makes group work uniquely powerful. How does witnessing and being witnessed by others create something that one-on-one sessions can't?
-      </p>
-      <p>
-        What themes do your workshops typically cover? How are the sessions structured? What can participants expect to leave with?
-      </p>
-
-      <h3 class="font-serif text-2xl text-bark pt-4">Typical workshop themes</h3>
-      <ul class="space-y-2">
-        {[
-          'Identity and self-expression',
-          'Boundaries and nervous system regulation',
-          'Body literacy and somatic awareness',
-          'Purpose and creative living',
-          'Relationships and communication',
-          'Seasonal living and cyclical rhythms',
-        ].map((item) => (
-          <li class="flex items-start gap-3">
-            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-terracotta shrink-0"></span>
-            {item}
-          </li>
-        ))}
-      </ul>
-
-      <h3 class="font-serif text-2xl text-bark pt-4">Who is this for?</h3>
-      <p>
-        Placeholder — describe the ideal participant. Are these open to all, or themed for specific groups (women, creatives, etc.)? What prior experience, if any, is helpful?
-      </p>
-    </div>
-
-    <aside class="space-y-6">
-      <div class="bg-sand rounded-2xl p-6">
-        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Workshop Details</p>
-        <dl class="space-y-3 text-sm text-bark/70">
-          <div><dt class="font-medium text-bark">Format</dt><dd>Half-day & full-day workshops</dd></div>
-          <div><dt class="font-medium text-bark">Group size</dt><dd>6–12 participants</dd></div>
-          <div><dt class="font-medium text-bark">Location</dt><dd>In-person (venue TBC)</dd></div>
-          <div><dt class="font-medium text-bark">Investment</dt><dd>Placeholder pricing</dd></div>
-        </dl>
-      </div>
-      <a
-        href="/contact"
-        class="block w-full py-3.5 bg-terracotta text-cream font-medium rounded-full text-center hover:bg-bark transition-colors"
-      >
-        Register Interest
-      </a>
-      <a href="/services" class="block text-center text-sm text-bark/50 hover:text-terracotta transition-colors">
-        ← Back to all services
-      </a>
-    </aside>
-  </section>
-
-</Layout>
+<ServicePage
+  title={title}
+  icon={icon}
+  heroImage={heroImage}
+  tagline={tagline}
+  descriptionHeading={descriptionHeading}
+  description1={description1}
+  description2={description2}
+  itemsHeading={itemsHeading}
+  items={items}
+  whoIsThisFor={whoIsThisFor}
+  sessionDetails={sessionDetails}
+/>

@@ -1,70 +1,55 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ServiceCard from '../../components/ServiceCard.astro';
+import Layout from "../../layouts/Layout.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import PageHero from "../../components/PageHero.astro";
+import { getCollection } from "astro:content";
 
-const services = [
-  {
-    title: 'Life Coaching (1:1)',
-    description: 'Personalised one-on-one sessions to help you clarify your direction, dissolve old patterns, and build a life that truly fits. Coaching that serves the whole person.',
-    icon: '🌱',
-    href: '/services/life-coaching',
-    tags: ['1:1', 'In-person', 'Online'],
-  },
-  {
-    title: 'Group Coaching & Workshops',
-    description: 'Collective containers for healing, shared inquiry, and community. Group workshops explore themes of identity, purpose, and embodied living in a supportive circle.',
-    icon: '✨',
-    href: '/services/group-coaching',
-    tags: ['Group', 'Workshops'],
-  },
-  {
-    title: 'Massage Therapy',
-    description: "Therapeutic massage tailored to your body's current needs — from targeted deep tissue work to gentle nervous-system restorative touch.",
-    icon: '🤲',
-    href: '/services/massage-therapy',
-    tags: ['In-person', 'Therapeutic'],
-  },
-  {
-    title: 'Somatic Mind-Body Work',
-    description: 'Body-based practices and somatic coaching to help you listen inward, release tension held in the body, and develop a felt sense of safety and presence.',
-    icon: '🌿',
-    href: '/services/somatic-work',
-    tags: ['1:1', 'In-person', 'Online'],
-  },
-  {
-    title: 'Online Sessions',
-    description: 'Coaching and mind-body sessions available fully online — for those who prefer the convenience and privacy of working from home, wherever you are in the world.',
-    icon: '💻',
-    href: '/services/online-sessions',
-    tags: ['Online', '1:1'],
-  },
+const allServices = await getCollection("services");
+
+// Preserve display order
+const ORDER = [
+  "life-coaching",
+  "group-coaching",
+  "massage-therapy",
+  "somatic-work",
+  "womb-clearing",
+  "online-sessions",
 ];
+const TAGS: Record<string, string[]> = {
+  "life-coaching": ["1:1", "In-person", "Online"],
+  "group-coaching": ["Group", "Workshops"],
+  "massage-therapy": ["In-person", "Therapeutic"],
+  "somatic-work": ["1:1", "In-person", "Online"],
+  "womb-clearing": ["1:1", "In-person"],
+  "online-sessions": ["Online", "1:1"],
+};
+const services = ORDER.map((id) => allServices.find((s) => s.id === id))
+  .filter(Boolean)
+  .map((s) => ({
+    title: s!.data.title,
+    description: s!.data.description1,
+    heroImage: s!.data.heroImage,
+    href: `/services/${s!.id}`,
+    tags: TAGS[s!.id] ?? [],
+  }));
 ---
 
 <Layout
   title="Services"
   description="Explore Suniai's offerings — life coaching, group workshops, somatic work, massage therapy, and online sessions."
 >
-
   <!-- Hero -->
-  <section class="bg-sand-light py-24">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Services</p>
-      <h1 class="font-serif text-5xl md:text-6xl text-bark mb-6">
-        Find the support that's right for you.
-      </h1>
-      <p class="text-lg text-bark/70 leading-relaxed">
-        Whether you're drawn to one-on-one coaching, bodywork, group practice, or something in between — there's a way to work together.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Services"
+    heading="Find the support that's right for you."
+    image="https://images.unsplash.com/photo-1600706843784-6f0ad251f52f?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    subheading="Whether you're drawn to one-on-one coaching, bodywork, group practice, or something in between — there's a way to work together."
+  />
 
   <!-- Service cards grid -->
   <section class="max-w-6xl mx-auto px-6 py-20">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {services.map((service) => (
-        <ServiceCard {...service} />
-      ))}
+      {services.map((service) => <ServiceCard {...service} />)}
     </div>
   </section>
 
@@ -73,15 +58,15 @@ const services = [
     <div class="max-w-2xl mx-auto px-6 text-center">
       <h2 class="font-serif text-4xl mb-5">Not sure where to start?</h2>
       <p class="text-cream/70 mb-8 leading-relaxed">
-        Reach out and we'll have a short conversation to find the best fit for where you are right now.
+        Reach out and we'll have a short conversation to find the best fit for
+        where you are right now.
       </p>
       <a
         href="/contact"
-        class="inline-block px-8 py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
+        class="inline-block px-8 py-3.5 bg-dark-rose text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
       >
         Get in Touch
       </a>
     </div>
   </section>
-
 </Layout>

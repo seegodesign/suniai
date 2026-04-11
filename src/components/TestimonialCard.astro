@@ -1,12 +1,15 @@
 ---
 interface Props {
   name: string;
-  quote: string;
   service: string;
   featured?: boolean;
+  photo?: string;
 }
 
-const { name, quote, service, featured = false } = Astro.props;
+const { name, service, featured = false, photo } = Astro.props;
+
+// Unique id so multiple cards on the same page don't conflict
+const id = `tc-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <figure
@@ -18,30 +21,63 @@ const { name, quote, service, featured = false } = Astro.props;
   ]}
 >
   <svg
-    class:list={['w-8 h-8 mb-5', featured ? 'text-terracotta' : 'text-terracotta/40']}
+    class:list={['w-8 h-8 mb-5', featured ? 'text-dark-rose' : 'text-dark-rose/40']}
     fill="currentColor"
     viewBox="0 0 24 24"
     aria-hidden="true"
   >
     <path d="M14.017 21v-7.391C14.017 10.339 16.824 7.667 21 7v1.853c-2.312.552-3.983 2.1-3.983 4.459V21h-2.999zM3 21v-7.391C3 10.339 5.806 7.667 9.983 7v1.853C7.671 9.405 6 10.953 6 13.312V21H3z"/>
   </svg>
-  <blockquote
-    class:list={[
-      'font-serif text-lg leading-relaxed italic flex-1 mb-6',
-      featured ? 'text-cream' : 'text-bark',
-    ]}
-  >
-    "{quote}"
-  </blockquote>
+
+  <div class="flex-1 mb-6">
+    <!-- Truncated preview, content cloned to modal by JS -->
+    <blockquote
+      id={`${id}-quote`}
+      class:list={[
+        'text-lg leading-relaxed [&>p]:mb-3 [&>p:last-child]:mb-0',
+        'overflow-hidden',
+        featured ? 'text-cream' : 'text-bark',
+      ]}
+      style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6;"
+    >
+      <slot />
+    </blockquote>
+    <button
+      data-open={id}
+      class="mt-3 text-sm font-medium text-dark-rose hover:underline hidden"
+      aria-haspopup="dialog"
+    >
+      Read more
+    </button>
+  </div>
+
   <figcaption class="flex items-center justify-between">
-    <span class:list={['text-sm font-medium', featured ? 'text-cream/80' : 'text-bark/70']}>
-      — {name}
-    </span>
+    <div class="flex items-center gap-3">
+      {photo ? (
+        <img
+          src={photo}
+          alt={name}
+          width="36"
+          height="36"
+          class="w-9 h-9 rounded-full object-cover shrink-0 ring-2 ring-sand"
+        />
+      ) : (
+        <div class:list={[
+          'w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-sm font-semibold',
+          featured ? 'bg-dark-rose/20 text-dark-rose' : 'bg-sand text-bark/50',
+        ]}>
+          {name.charAt(0)}
+        </div>
+      )}
+      <span class:list={['text-sm font-medium', featured ? 'text-cream/80' : 'text-bark/70']}>
+        {name}
+      </span>
+    </div>
     <span
       class:list={[
         'text-xs px-3 py-0.5 rounded-full',
         featured
-          ? 'bg-terracotta/20 text-terracotta'
+          ? 'bg-dark-rose/20 text-dark-rose'
           : 'bg-sand text-bark/50',
       ]}
     >
@@ -49,3 +85,80 @@ const { name, quote, service, featured = false } = Astro.props;
     </span>
   </figcaption>
 </figure>
+
+<!-- Modal -->
+<dialog
+  id={id}
+  class="backdrop:bg-bark/60 rounded-2xl p-8 max-w-lg w-[calc(100vw-2rem)] shadow-xl border border-sand outline-none"
+>
+  <button
+    data-close={id}
+    class="absolute top-4 right-5 text-bark/40 hover:text-bark text-2xl leading-none"
+    aria-label="Close"
+  >&times;</button>
+  <svg class="w-8 h-8 text-dark-rose/40 mb-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M14.017 21v-7.391C14.017 10.339 16.824 7.667 21 7v1.853c-2.312.552-3.983 2.1-3.983 4.459V21h-2.999zM3 21v-7.391C3 10.339 5.806 7.667 9.983 7v1.853C7.671 9.405 6 10.953 6 13.312V21H3z"/>
+  </svg>
+  <blockquote
+    data-modal-quote={id}
+    class="text-lg text-bark leading-relaxed [&>p]:mb-3 [&>p:last-child]:mb-0 mb-6"
+  ></blockquote>
+  <div class="flex items-center gap-3">
+    {photo ? (
+      <img src={photo} alt={name} width="40" height="40" class="w-10 h-10 rounded-full object-cover shrink-0 ring-2 ring-sand" />
+    ) : (
+      <div class="w-10 h-10 rounded-full shrink-0 bg-sand flex items-center justify-center text-sm font-semibold text-bark/50">
+        {name.charAt(0)}
+      </div>
+    )}
+    <p class="text-sm font-medium text-bark/60">{name} &nbsp;·&nbsp; {service}</p>
+  </div>
+</dialog>
+
+<style>
+  dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    margin: 0;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-open]').forEach((btn) => {
+    const id = btn.getAttribute('data-open')!;
+    const quote = document.getElementById(`${id}-quote`);
+    const dialog = document.getElementById(id) as HTMLDialogElement | null;
+    const modalQuote = dialog?.querySelector<HTMLElement>('[data-modal-quote]');
+    if (!quote || !dialog || !modalQuote) return;
+
+    // Show button only when text is actually clamped
+    if (quote.scrollHeight > quote.clientHeight + 2) {
+      btn.classList.remove('hidden');
+    }
+
+    btn.addEventListener('click', () => {
+      modalQuote.innerHTML = quote.innerHTML;
+      dialog.showModal();
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-close]').forEach((btn) => {
+    const id = btn.getAttribute('data-close')!;
+    const dialog = document.getElementById(id) as HTMLDialogElement | null;
+    if (!dialog) return;
+    btn.addEventListener('click', () => dialog.close());
+  });
+
+  // Close on backdrop click
+  document.querySelectorAll<HTMLDialogElement>('dialog[id^="tc-"]').forEach((dialog) => {
+    dialog.addEventListener('click', (e) => {
+      const rect = dialog.getBoundingClientRect();
+      const outside =
+        e.clientX < rect.left || e.clientX > rect.right ||
+        e.clientY < rect.top  || e.clientY > rect.bottom;
+      if (outside) dialog.close();
+    });
+  });
+</script>

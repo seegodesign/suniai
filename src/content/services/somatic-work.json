@@ -1,0 +1,25 @@
+{
+  "title": "Somatic Mind-Body Work",
+  "icon": "🌿",
+  "heroImage": "https://images.unsplash.com/photo-1545389336-cf090694435e",
+  "tagline": "Learning the language your body has always been speaking.",
+  "descriptionHeading": "What is somatic work?",
+  "description1": "Placeholder — explain what somatic work is in plain language. What does \"somatic\" mean? How does it differ from talk therapy or traditional coaching?",
+  "description2": "Describe the kind of practices and tools you use. What does a typical session feel like? What shifts do clients often notice?",
+  "itemsHeading": "What we work with",
+  "items": [
+    "Body awareness and interoception",
+    "Breath and nervous system regulation",
+    "Movement and sensation tracking",
+    "Held patterns and somatic memory",
+    "Grounding and presence practices",
+    "Integration of emotions held in the body"
+  ],
+  "whoIsThisFor": "Placeholder — describe the ideal person for this service. Perhaps those who feel \"in their head\" a lot, those with somatic symptoms of stress, or those wanting a deeper relationship with their body?",
+  "sessionDetails": [
+    { "label": "Duration", "value": "60–90 minutes" },
+    { "label": "Format", "value": "In-person or online" },
+    { "label": "Frequency", "value": "Weekly or fortnightly" },
+    { "label": "Investment", "value": "Placeholder pricing" }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Online Sessions",
+  "icon": "💻",
+  "heroImage": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b",
+  "tagline": "The same depth of presence — delivered from wherever you are.",
+  "descriptionHeading": "Working together online",
+  "description1": "Placeholder — describe how online sessions work. What platform do you use? How is the experience adapted for video? What works especially well in the online format?",
+  "description2": "Address any common concerns — does the depth of somatic or coaching work translate online? What do you do to create safety and presence across a screen?",
+  "itemsHeading": "Available online",
+  "items": [
+    "Life coaching (1:1)",
+    "Somatic mind-body coaching",
+    "Breathwork guidance",
+    "Mindfulness and presence practices",
+    "Group workshops (select sessions)"
+  ],
+  "whoIsThisFor": "A quiet, private space. A good internet connection. A device with a camera and microphone. And an open, curious mind — everything else, we create together.",
+  "sessionDetails": [
+    { "label": "Platform", "value": "Zoom / Google Meet" },
+    { "label": "Duration", "value": "60–90 minutes" },
+    { "label": "Timezone", "value": "Flexible" },
+    { "label": "Investment", "value": "Placeholder pricing" }
+  ]
+}

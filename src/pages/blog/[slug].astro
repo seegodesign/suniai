@@ -24,6 +24,15 @@ const formattedDate = post.data.pubDate.toLocaleDateString('en-GB', {
 
   <!-- Post hero -->
   <section class="bg-sand-light py-20">
+    {post.data.heroImage && (
+      <div class="max-w-4xl mx-auto px-6 mb-10">
+        <img
+          src={post.data.heroImage}
+          alt={post.data.title}
+          class="w-full aspect-[2/1] object-cover rounded-2xl"
+        />
+      </div>
+    )}
     <div class="max-w-3xl mx-auto px-6 text-center">
       {post.data.tags.length > 0 && (
         <div class="flex flex-wrap justify-center gap-1.5 mb-5">
@@ -40,13 +49,13 @@ const formattedDate = post.data.pubDate.toLocaleDateString('en-GB', {
   </section>
 
   <!-- Post content -->
-  <article class="max-w-2xl mx-auto px-6 py-16 prose prose-bark">
+  <article class="max-w-2xl mx-auto px-6 py-16 prose prose-bark [&>p]:mb-4">
     <Content />
   </article>
 
   <!-- Back link -->
   <div class="max-w-2xl mx-auto px-6 pb-20 border-t border-sand pt-8">
-    <a href="/blog" class="text-sm text-terracotta font-medium hover:underline">
+    <a href="/blog" class="text-sm text-dark-rose font-medium hover:underline">
       ← Back to all writings
     </a>
   </div>

@@ -1,16 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
-import { getCollection } from 'astro:content';
+import PageHero from '../components/PageHero.astro';
+import { getCollection, render } from 'astro:content';
 
 const allTestimonials = await getCollection('testimonials');
 
 // Sort: featured first, then by name
-const testimonials = allTestimonials.sort((a, b) => {
-  if (a.data.featured && !b.data.featured) return -1;
-  if (!a.data.featured && b.data.featured) return 1;
-  return a.data.name.localeCompare(b.data.name);
-});
+const testimonials = await Promise.all(
+  allTestimonials
+    .sort((a, b) => {
+      if (a.data.featured && !b.data.featured) return -1;
+      if (!a.data.featured && b.data.featured) return 1;
+      return a.data.name.localeCompare(b.data.name);
+    })
+    .map(async (entry) => {
+      const { Content } = await render(entry);
+      return { data: entry.data, Content };
+    })
+);
 ---
 
 <Layout
@@ -18,27 +26,24 @@ const testimonials = allTestimonials.sort((a, b) => {
   description="What clients say about working with Suniai — life coaching, somatic work, massage therapy, and more."
 >
 
-  <section class="bg-sand-light py-24">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Testimonials</p>
-      <h1 class="font-serif text-5xl md:text-6xl text-bark mb-6">
-        In their own words.
-      </h1>
-      <p class="text-lg text-bark/70 leading-relaxed">
-        Real words from people who've done the work.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Testimonials"
+    heading="In their own words."
+    subheading="Real words from people who've done the work."
+    image="https://images.unsplash.com/photo-1588338949261-659fc6fed20b"
+  />
 
   <section class="max-w-6xl mx-auto px-6 py-20">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {testimonials.map(({ data }) => (
+      {testimonials.map(({ data, Content }) => (
         <TestimonialCard
           name={data.name}
-          quote={data.quote}
           service={data.service}
           featured={data.featured}
-        />
+          photo={data.photo}
+        >
+          <Content />
+        </TestimonialCard>
       ))}
     </div>
   </section>
@@ -49,7 +54,7 @@ const testimonials = allTestimonials.sort((a, b) => {
       <h2 class="font-serif text-3xl text-bark mb-5">Ready to write your own story?</h2>
       <a
         href="/contact"
-        class="inline-block px-8 py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-bark transition-colors"
+        class="inline-block px-8 py-3.5 bg-dark-rose text-cream font-medium rounded-full hover:bg-bark transition-colors"
       >
         Book a Session
       </a>

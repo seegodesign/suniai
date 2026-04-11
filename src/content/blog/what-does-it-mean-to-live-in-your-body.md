@@ -1,8 +1,13 @@
 ---
-title: "What does it mean to live in your body?"
-description: "Most of us have been taught to live from the neck up. Here's an invitation to come home."
+title: What does it mean to live in your body?
+description: Most of us have been taught to live from the neck up. Here's an
+  invitation to come home.
 pubDate: 2026-03-15
-tags: ["somatic", "embodiment", "mindfulness"]
+tags:
+  - somatic
+  - embodiment
+  - mindfulness
+heroImage: https://images.unsplash.com/photo-1522075782449-e45a34f1ddfb?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
 Most of us were raised in systems that rewarded clear thinking, quick answers, and productivity — and quietly penalised slowness, feeling, and not-knowing. Over time, many of us learned to live almost entirely from the neck up.

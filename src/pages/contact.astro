@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 ---
 
 <Layout
@@ -7,22 +8,18 @@ import Layout from '../layouts/Layout.astro';
   description="Get in touch with Suniai to book a session or ask a question about life coaching, somatic work, or massage therapy."
 >
 
-  <section class="bg-sand-light py-24">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4">Contact</p>
-      <h1 class="font-serif text-5xl md:text-6xl text-bark mb-6">Let's talk.</h1>
-      <p class="text-lg text-bark/70 leading-relaxed">
-        Whether you have questions or you're ready to begin — reach out. Every journey starts with a conversation.
-      </p>
-    </div>
-  </section>
+  <PageHero
+    eyebrow="Contact"
+    heading="Let's talk."
+    subheading="Whether you have questions or you're ready to begin — reach out. Every journey starts with a conversation."
+  />
 
   <section class="max-w-5xl mx-auto px-6 py-20 grid md:grid-cols-5 gap-16">
 
     <!-- Form -->
     <div class="md:col-span-3">
       <form
-        action="mailto:hello@suniai.com"
+        action="mailto:hello@suniai.one"
         method="get"
         enctype="text/plain"
         class="space-y-6"
@@ -36,7 +33,7 @@ import Layout from '../layouts/Layout.astro';
               name="name"
               required
               autocomplete="name"
-              class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-terracotta transition-colors"
+              class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-dark-rose transition-colors"
               placeholder="Jane Smith"
             />
           </div>
@@ -48,7 +45,7 @@ import Layout from '../layouts/Layout.astro';
               name="email"
               required
               autocomplete="email"
-              class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-terracotta transition-colors"
+              class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-dark-rose transition-colors"
               placeholder="jane@example.com"
             />
           </div>
@@ -61,7 +58,7 @@ import Layout from '../layouts/Layout.astro';
           <select
             id="service"
             name="service"
-            class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark focus:outline-none focus:border-terracotta transition-colors appearance-none"
+            class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark focus:outline-none focus:border-dark-rose transition-colors appearance-none"
           >
             <option value="">Select a service (optional)</option>
             <option value="life-coaching">Life Coaching (1:1)</option>
@@ -80,20 +77,20 @@ import Layout from '../layouts/Layout.astro';
             name="body"
             rows="6"
             required
-            class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-terracotta transition-colors resize-none"
+            class="w-full px-4 py-3 rounded-xl border border-sand bg-cream text-bark placeholder-bark/30 focus:outline-none focus:border-dark-rose transition-colors resize-none"
             placeholder="Tell me a little about what's bringing you here…"
           ></textarea>
         </div>
 
         <button
           type="submit"
-          class="w-full py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-bark transition-colors"
+          class="w-full py-3.5 bg-dark-rose text-cream font-medium rounded-full hover:bg-bark transition-colors"
         >
           Send Message
         </button>
 
         <p class="text-xs text-bark/40 text-center">
-          This will open your email client. Alternatively, email directly: <a href="mailto:hello@suniai.com" class="underline hover:text-terracotta">hello@suniai.com</a>
+          This will open your email client. Alternatively, email directly: <a href="mailto:hello@suniai.one" class="underline hover:text-dark-rose">hello@suniai.one</a>
         </p>
       </form>
     </div>
@@ -101,21 +98,21 @@ import Layout from '../layouts/Layout.astro';
     <!-- Contact info sidebar -->
     <aside class="md:col-span-2 space-y-8">
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-3">Email</p>
-        <a href="mailto:hello@suniai.com" class="text-bark/70 hover:text-terracotta transition-colors text-sm">
-          hello@suniai.com
+        <p class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3">Email</p>
+        <a href="mailto:hello@suniai.one" class="text-bark/70 hover:text-dark-rose transition-colors text-sm">
+          hello@suniai.one
         </a>
       </div>
 
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-3">Sessions</p>
+        <p class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3">Sessions</p>
         <p class="text-sm text-bark/70 leading-relaxed">
           Available in-person and online. Contact to discuss availability and location details.
         </p>
       </div>
 
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-3">Response time</p>
+        <p class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3">Response time</p>
         <p class="text-sm text-bark/70 leading-relaxed">
           I typically reply within 2–3 business days. If you don't hear back, please check your spam folder.
         </p>
@@ -126,7 +123,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="text-sm text-bark/60 leading-relaxed mb-4">
           Mention in your message that you'd like a brief introductory call — no obligation, just a conversation.
         </p>
-        <a href="/faq" class="text-sm text-terracotta font-medium hover:underline">
+        <a href="/faq" class="text-sm text-dark-rose font-medium hover:underline">
           Read the FAQ →
         </a>
       </div>

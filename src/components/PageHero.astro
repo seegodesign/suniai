@@ -1,0 +1,51 @@
+---
+interface Props {
+  eyebrow: string;
+  heading: string;
+  subheading?: string;
+  image?: string;
+  tint?: string; // e.g. "bg-black/40" — defaults to "bg-bark/50"
+}
+
+const { eyebrow, heading, subheading, image, tint = 'bg-bark/50' } = Astro.props;
+---
+
+<section class="relative py-24 overflow-hidden">
+  {image ? (
+    <>
+      <img
+        src={`${image}?auto=format&fit=crop&w=2000&q=70`}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class:list={['absolute inset-0', tint]}></div>
+    </>
+  ) : (
+    <div class="absolute inset-0 bg-sand-light"></div>
+  )}
+
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <p class:list={[
+      'text-xs font-semibold uppercase tracking-widest mb-4',
+      image ? 'text-white' : 'text-dark-rose',
+      image ? 'opacity-80' : '',
+    ]}>
+      {eyebrow}
+    </p>
+    <h1 class:list={[
+      'font-serif text-5xl md:text-6xl mb-6',
+      image ? 'text-cream' : 'text-bark',
+    ]}>
+      {heading}
+    </h1>
+    {subheading && (
+      <p class:list={[
+        'text-lg leading-relaxed',
+        image ? 'text-cream/80' : 'text-bark/70',
+      ]}
+        set:html={subheading}
+      />
+    )}
+  </div>
+</section>

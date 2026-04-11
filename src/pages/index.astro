@@ -1,5 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import capriPortrait from "../assets/capri.jpg";
+import { getCollection, render } from "astro:content";
+
+const ORDER = [
+  "life-coaching",
+  "group-coaching",
+  "massage-therapy",
+  "somatic-work",
+  "womb-clearing",
+  "online-sessions",
+];
+const allServices = await getCollection("services");
+const homeServices = ORDER.map((id) => allServices.find((s) => s.id === id))
+  .filter(Boolean)
+  .map((s) => ({
+    title: s!.data.title,
+    icon: s!.data.icon,
+    desc: s!.data.tagline,
+    href: `/services/${s!.id}`,
+  }));
+
+const allTestimonials = await getCollection("testimonials");
+const testimonialSlides = await Promise.all(
+  allTestimonials
+    .sort((a, b) => {
+      if (a.data.featured && !b.data.featured) return -1;
+      if (!a.data.featured && b.data.featured) return 1;
+      return a.data.name.localeCompare(b.data.name);
+    })
+    .map(async (entry) => {
+      const { Content } = await render(entry);
+      return { data: entry.data, Content };
+    }),
+);
 ---
 
 <Layout
@@ -8,26 +43,20 @@ import Layout from "../layouts/Layout.astro";
 >
   <!-- Hero -->
   <section
-    class="relative min-h-[90vh] flex items-center justify-center overflow-hidden"
+    class="relative min-h-[93vh] flex items-center justify-center overflow-hidden bg-cover bg-center bg-fixed"
+    style="background-image: url(https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?q=80&w=1170&auto=format&fit=crop)"
   >
-    <!-- Background image -->
-    <img
-      src="https://images.unsplash.com/photo-1528715471579-d1bcf0ba5e83?"
-      alt=""
-      aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
     <!-- tinted overlay -->
     <div class="absolute inset-0 bg-bark/30"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
       <p
-        class="text-sm font-medium tracking-[0.2em] uppercase text-terracotta mb-6"
+        class="text-sm font-medium tracking-[0.2em] uppercase text-white mb-6 opacity-50"
       >
         Holistic Life Coaching · Mind-Body Work · Massage Therapy
       </p>
       <h1 class="font-serif text-5xl md:text-7xl text-cream leading-tight mb-8">
-        Return to<br /><em>yourself.</em>
+        Return to <em class="text-rose">yourself.</em>
       </h1>
       <p
         class="text-lg md:text-xl text-cream/80 leading-relaxed max-w-xl mx-auto mb-10"
@@ -38,7 +67,7 @@ import Layout from "../layouts/Layout.astro";
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/contact"
-          class="px-8 py-3.5 bg-terracotta text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
+          class="px-8 py-3.5 bg-dark-rose text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
         >
           Book a Session
         </a>
@@ -52,27 +81,13 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <!-- Organic divider -->
-  <div
-    class="w-full overflow-hidden leading-[0] text-sand-light"
-    aria-hidden="true"
-  >
-    <svg
-      viewBox="0 0 1200 60"
-      preserveAspectRatio="none"
-      class="w-full h-12 fill-current"
-    >
-      <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"></path>
-    </svg>
-  </div>
-
   <!-- Intro / About teaser -->
   <section
-    class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center"
+    class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-16 items-center"
   >
     <div>
       <p
-        class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-4"
+        class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-4"
       >
         About Suniai
       </p>
@@ -91,7 +106,7 @@ import Layout from "../layouts/Layout.astro";
       </p>
       <a
         href="/about"
-        class="inline-flex items-center gap-2 text-terracotta font-medium hover:gap-3 transition-all"
+        class="inline-flex items-center gap-2 text-dark-rose font-medium hover:gap-3 transition-all"
       >
         Learn more about Suniai
         <svg
@@ -108,12 +123,12 @@ import Layout from "../layouts/Layout.astro";
         >
       </a>
     </div>
-    <!-- Portrait placeholder -->
+    <!-- Portrait -->
     <div
       class="aspect-[3/4] bg-sand rounded-2xl flex items-center justify-center text-bark/30"
     >
-      <img
-        src="/capri.jpg"
+      <Image
+        src={capriPortrait}
         alt="Portrait of Capri"
         class="aspect-[3/4] w-full object-cover rounded-2xl"
       />
@@ -121,54 +136,30 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <!-- Services strip -->
-  <section class="bg-sand-light py-20">
-    <div class="max-w-6xl mx-auto px-6">
+  <section class="relative py-20 overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1173&auto=format&fit=crop"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-sand/80"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-6">
       <p
-        class="text-xs font-semibold uppercase tracking-widest text-terracotta mb-3 text-center"
+        class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3 text-center"
       >
         What I Offer
       </p>
       <h2 class="font-serif text-4xl text-bark text-center mb-14">Services</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {
-          [
-            {
-              title: "Life Coaching",
-              icon: "🌱",
-              desc: "One-on-one coaching sessions to help you clarify your direction, dissolve old patterns, and build a life that truly fits.",
-              href: "/services/life-coaching",
-            },
-            {
-              title: "Somatic Work",
-              icon: "🌿",
-              desc: "Body-based practices to help you listen inward, release held tension, and cultivate presence in everyday life.",
-              href: "/services/somatic-work",
-            },
-            {
-              title: "Massage Therapy",
-              icon: "🤲",
-              desc: "Therapeutic massage tailored to your needs — from deep tissue release to gentle restorative touch.",
-              href: "/services/massage-therapy",
-            },
-            {
-              title: "Group Coaching",
-              icon: "✨",
-              desc: "Workshops and group containers for collective healing, shared inquiry, and community support.",
-              href: "/services/group-coaching",
-            },
-            {
-              title: "Online Sessions",
-              icon: "💻",
-              desc: "Coaching and mind-body sessions available virtually — wherever you are in the world.",
-              href: "/services/online-sessions",
-            },
-          ].map(({ title, icon, desc, href }) => (
+          homeServices.map(({ title, icon, desc, href }) => (
             <a
               href={href}
-              class="group bg-cream rounded-2xl p-7 border border-sand hover:border-terracotta hover:shadow-md transition-all"
+              class="group bg-cream rounded-2xl p-7 border border-sand hover:border-dark-rose hover:shadow-md transition-all"
             >
               <div class="text-3xl mb-4">{icon}</div>
-              <h3 class="font-serif text-xl text-bark mb-3 group-hover:text-terracotta transition-colors">
+              <h3 class="font-serif text-xl text-bark mb-3 group-hover:text-dark-rose transition-colors">
                 {title}
               </h3>
               <p class="text-sm text-bark/60 leading-relaxed">{desc}</p>
@@ -177,7 +168,7 @@ import Layout from "../layouts/Layout.astro";
         }
         <a
           href="/services"
-          class="group bg-terracotta rounded-2xl p-7 flex flex-col justify-end text-cream"
+          class="group bg-dark-rose rounded-2xl p-7 flex flex-col justify-end text-cream"
         >
           <h3 class="font-serif text-xl mb-3">View all services</h3>
           <span
@@ -190,10 +181,10 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <!-- Pull-quote testimonial -->
+  <!-- Pull-quote testimonial slider -->
   <section class="max-w-3xl mx-auto px-6 py-24 text-center">
     <svg
-      class="w-10 h-10 text-terracotta/30 mx-auto mb-6"
+      class="w-10 h-10 text-dark-rose/30 mx-auto mb-8"
       fill="currentColor"
       viewBox="0 0 24 24"
       aria-hidden="true"
@@ -202,26 +193,129 @@ import Layout from "../layouts/Layout.astro";
         d="M14.017 21v-7.391C14.017 10.339 16.824 7.667 21 7v1.853c-2.312.552-3.983 2.1-3.983 4.459V21h-2.999zM3 21v-7.391C3 10.339 5.806 7.667 9.983 7v1.853C7.671 9.405 6 10.953 6 13.312V21H3z"
       ></path>
     </svg>
-    <blockquote
-      class="font-serif text-2xl md:text-3xl text-bark leading-relaxed mb-8 italic"
-    >
-      "Working with Suniai changed how I experience my own body. I came in
-      feeling stuck and left with a new language for understanding myself."
-    </blockquote>
-    <p class="text-sm font-medium text-bark/50 uppercase tracking-widest">
-      — Placeholder Client, Life Coaching
-    </p>
+
+    <div id="quote-slider" class="grid mb-8">
+      {
+        testimonialSlides.map(({ data, Content }, i) => (
+          <div
+            data-slide={i}
+            class:list={[
+              "row-start-1 col-start-1 transition-opacity duration-1000",
+              i === 0
+                ? "opacity-100"
+                : "opacity-0 pointer-events-none select-none",
+            ]}
+          >
+            <blockquote
+              class="font-serif text-2xl md:text-3xl text-bark leading-relaxed italic mb-6 overflow-hidden [&>p]:inline"
+              style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;"
+            >
+              <Content />
+            </blockquote>
+            <div class="flex items-center justify-center gap-3">
+              {data.photo && (
+                <img
+                  src={data.photo}
+                  alt={data.name}
+                  width="36"
+                  height="36"
+                  class="w-9 h-9 rounded-full object-cover ring-2 ring-sand"
+                />
+              )}
+              <p class="text-sm font-medium text-bark/50 uppercase tracking-widest">
+                — {data.name}, {data.service}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex justify-center gap-2 mb-8">
+      {
+        testimonialSlides.map((_, i) => (
+          <button
+            data-dot={i}
+            class:list={[
+              "w-2 h-2 rounded-full transition-colors duration-300",
+              i === 0 ? "bg-bark" : "bg-sand",
+            ]}
+            aria-label={`Testimonial ${i + 1}`}
+          />
+        ))
+      }
+    </div>
+
     <a
       href="/testimonials"
-      class="inline-block mt-8 text-sm text-terracotta font-medium hover:underline"
+      class="inline-block text-sm text-dark-rose font-medium hover:underline"
     >
       Read more testimonials →
     </a>
   </section>
 
+  <script>
+    const slider = document.getElementById("quote-slider");
+    if (slider) {
+      const slides = Array.from(
+        slider.querySelectorAll<HTMLElement>("[data-slide]"),
+      );
+      const dots = Array.from(
+        document.querySelectorAll<HTMLButtonElement>("[data-dot]"),
+      );
+      let current = 0;
+      let timer: ReturnType<typeof setInterval>;
+
+      function goTo(index: number) {
+        slides[current].classList.add(
+          "opacity-0",
+          "pointer-events-none",
+          "select-none",
+        );
+        slides[current].classList.remove("opacity-100");
+        dots[current].classList.remove("bg-bark");
+        dots[current].classList.add("bg-sand");
+
+        current = ((index % slides.length) + slides.length) % slides.length;
+
+        slides[current].classList.remove(
+          "opacity-0",
+          "pointer-events-none",
+          "select-none",
+        );
+        slides[current].classList.add("opacity-100");
+        dots[current].classList.remove("bg-sand");
+        dots[current].classList.add("bg-bark");
+      }
+
+      function startTimer() {
+        timer = setInterval(() => goTo(current + 1), 6000);
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          goTo(i);
+          clearInterval(timer);
+          startTimer();
+        });
+      });
+
+      startTimer();
+    }
+  </script>
+
   <!-- CTA banner -->
-  <section class="bg-bark text-cream">
-    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
+  <section class="relative text-cream overflow-hidden min-h-[70vh] flex items-center justify-center">
+    <Image
+      src="https://images.unsplash.com/photo-1682695795931-a546abdb6733?q=80&w=1170&auto=format&fit=crop"
+      alt=""
+      aria-hidden="true"
+      width={2000}
+      height={1333}
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-bark/60"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center">
       <h2 class="font-serif text-4xl md:text-5xl mb-6">Ready to begin?</h2>
       <p class="text-cream/70 text-lg mb-10 leading-relaxed">
         Whether you're looking for one-on-one coaching, bodywork, or a gentle
@@ -230,7 +324,7 @@ import Layout from "../layouts/Layout.astro";
       </p>
       <a
         href="/contact"
-        class="inline-block px-10 py-4 bg-terracotta text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
+        class="inline-block px-10 py-4 bg-dark-rose text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
       >
         Get in Touch
       </a>

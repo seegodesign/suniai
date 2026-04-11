@@ -1,55 +1,68 @@
 ---
 const footerLinks = [
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Testimonials', href: '/testimonials' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Blog", href: "/blog" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 ---
 
-<footer class="bg-bark text-cream/80 mt-20">
+<footer class="bg-bark text-cream/80">
   <div class="max-w-6xl mx-auto px-6 py-16">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-
       <!-- Brand column -->
       <div>
         <p class="font-serif text-2xl text-cream mb-3">Suniai</p>
         <p class="text-sm leading-relaxed text-cream/60">
-          Holistic life coaching, mind-body work, and therapeutic massage — helping you return to yourself.
+          Holistic life coaching, mind-body work, and therapeutic massage —
+          helping you return to yourself.
         </p>
       </div>
 
       <!-- Nav links -->
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-cream/40 mb-4">Navigation</p>
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-cream/40 mb-4"
+        >
+          Navigation
+        </p>
         <ul class="space-y-2">
-          {footerLinks.map(({ label, href }) => (
-            <li>
-              <a href={href} class="text-sm text-cream/70 hover:text-terracotta transition-colors">
-                {label}
-              </a>
-            </li>
-          ))}
+          {
+            footerLinks.map(({ label, href }) => (
+              <li>
+                <a
+                  href={href}
+                  class="text-sm text-cream/70 hover:text-dark-rose transition-colors"
+                >
+                  {label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <!-- Contact column -->
       <div>
-        <p class="text-xs font-semibold uppercase tracking-widest text-cream/40 mb-4">Get in Touch</p>
-        <a
-          href="mailto:hello@suniai.com"
-          class="text-sm text-cream/70 hover:text-terracotta transition-colors"
+        <p
+          class="text-xs font-semibold uppercase tracking-widest text-cream/40 mb-4"
         >
-          hello@suniai.com
+          Get in Touch
+        </p>
+        <a
+          href="mailto:hello@suniai.one"
+          class="text-sm text-cream/70 hover:text-dark-rose transition-colors"
+        >
+          hello@suniai.one
         </a>
         <p class="mt-4 text-sm text-cream/60">
           Sessions available in-person and online.
         </p>
         <a
           href="/contact"
-          class="inline-block mt-5 px-6 py-2.5 border border-terracotta text-terracotta text-sm font-medium rounded-full hover:bg-terracotta hover:text-cream transition-colors"
+          class="inline-block mt-5 px-6 py-2.5 border border-dark-rose text-dark-rose text-sm font-medium rounded-full hover:bg-dark-rose hover:text-cream transition-colors"
         >
           Book a Session
         </a>
@@ -57,8 +70,13 @@ const footerLinks = [
     </div>
 
     <!-- Divider + legal -->
-    <div class="border-t border-cream/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-cream/30">
+    <div
+      class="border-t border-cream/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-cream/30"
+    >
       <p>&copy; {new Date().getFullYear()} Suniai. All rights reserved.</p>
+      <p>
+        Registered Massage Therapist · MAT #<span class="text-cream/40">16796</span>
+      </p>
       <p>Site built with care.</p>
     </div>
   </div>

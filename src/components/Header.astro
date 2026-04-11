@@ -1,49 +1,113 @@
 ---
+// import { Image } from "astro:assets";
+// import suniaiLogo from "../assets/suniai-logo.png";
+import { getCollection } from 'astro:content';
+
+const ORDER = ['life-coaching', 'group-coaching', 'massage-therapy', 'somatic-work', 'womb-clearing', 'online-sessions'];
+const allServices = await getCollection('services');
+const serviceLinks = ORDER
+  .map((id) => allServices.find((s) => s.id === id))
+  .filter(Boolean)
+  .map((s) => ({ label: s!.data.title, href: `/services/${s!.id}` }));
+
 const navLinks = [
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Testimonials', href: '/testimonials' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Contact', href: '/contact' },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-sand">
+<header
+  class="sticky top-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-sand"
+>
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-
     <!-- Wordmark -->
-    <a href="/" class="font-serif text-2xl font-semibold tracking-wide text-bark hover:text-terracotta transition-colors">
+    <a href="/" class="text-dark-rose font-serif text-4xl font-semibold tracking-wide text-bark hover:text-rose transition-colors">
       Suniai
     </a>
+    <!-- <Image
+      src={suniaiLogo}
+      alt="Suniai"
+      width={240}
+      height={60}
+      class="hover:opacity-80 transition-opacity"
+    /> -->
 
     <!-- Desktop nav -->
     <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
-      {navLinks.map(({ label, href }) => (
+      <!-- Services dropdown -->
+      <div class="relative group">
         <a
-          href={href}
+          href="/services"
           class:list={[
-            'text-sm font-medium tracking-wide transition-colors hover:text-terracotta',
-            currentPath === href || currentPath.startsWith(href + '/')
-              ? 'text-terracotta'
-              : 'text-bark/70',
+            "text-sm font-medium tracking-wide transition-colors hover:text-dark-rose flex items-center gap-1",
+            currentPath === '/services' || currentPath.startsWith('/services/')
+              ? "text-dark-rose"
+              : "text-bark/70",
           ]}
         >
-          {label}
+          Services
+          <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 transition-transform group-hover:rotate-180 duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
         </a>
-      ))}
+        <div class="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity duration-150 z-50">
+          <ul class="bg-cream border border-sand rounded-xl shadow-lg py-2 min-w-[13rem]">
+            {serviceLinks.map(({ label, href }) => (
+              <li>
+                <a
+                  href={href}
+                  class:list={[
+                    "block px-5 py-2.5 text-sm transition-colors hover:bg-sand hover:text-dark-rose",
+                    currentPath === href ? "text-dark-rose font-medium" : "text-bark/70",
+                  ]}
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+            <li class="border-t border-sand mt-1 pt-1">
+              <a href="/services" class="block px-5 py-2.5 text-sm text-terracotta font-medium hover:bg-sand transition-colors">
+                All services →
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {
+        navLinks.map(({ label, href }) => (
+          <a
+            href={href}
+            class:list={[
+              "text-sm font-medium tracking-wide transition-colors hover:text-dark-rose",
+              currentPath === href || currentPath.startsWith(href + "/")
+                ? "text-dark-rose"
+                : "text-bark/70",
+            ]}
+          >
+            {label}
+          </a>
+        ))
+      }
       <a
         href="/contact"
-        class="ml-2 px-5 py-2 bg-terracotta text-cream text-sm font-medium rounded-full hover:bg-bark transition-colors"
+        class="ml-2 px-5 py-2 bg-dark-rose text-cream text-sm font-medium rounded-full hover:bg-bark transition-colors"
       >
         Book a Session
       </a>
     </nav>
 
     <!-- Mobile hamburger (CSS-only via checkbox) -->
-    <label class="md:hidden flex flex-col gap-1.5 cursor-pointer p-1" for="mobile-menu-toggle" aria-label="Toggle menu">
+    <label
+      class="md:hidden flex flex-col gap-1.5 cursor-pointer p-1"
+      for="mobile-menu-toggle"
+      aria-label="Toggle menu"
+    >
       <span class="block w-6 h-0.5 bg-bark"></span>
       <span class="block w-6 h-0.5 bg-bark"></span>
       <span class="block w-4 h-0.5 bg-bark"></span>
@@ -56,22 +120,46 @@ const currentPath = Astro.url.pathname;
     class="peer-checked:flex hidden flex-col gap-1 pb-4 px-6 md:hidden border-t border-sand bg-cream"
     aria-label="Mobile navigation"
   >
-    {navLinks.map(({ label, href }) => (
+    <a
+      href="/services"
+      class:list={[
+        "py-2.5 text-sm font-medium border-b border-sand/50 transition-colors hover:text-dark-rose",
+        currentPath === '/services' || currentPath.startsWith('/services/')
+          ? "text-dark-rose"
+          : "text-bark/70",
+      ]}
+    >
+      Services
+    </a>
+    {serviceLinks.map(({ label, href }) => (
       <a
         href={href}
         class:list={[
-          'py-2.5 text-sm font-medium border-b border-sand/50 transition-colors hover:text-terracotta',
-          currentPath === href || currentPath.startsWith(href + '/')
-            ? 'text-terracotta'
-            : 'text-bark/70',
+          "py-2 pl-4 text-sm border-b border-sand/30 transition-colors hover:text-dark-rose",
+          currentPath === href ? "text-dark-rose font-medium" : "text-bark/50",
         ]}
       >
         {label}
       </a>
     ))}
+    {
+      navLinks.map(({ label, href }) => (
+        <a
+          href={href}
+          class:list={[
+            "py-2.5 text-sm font-medium border-b border-sand/50 transition-colors hover:text-dark-rose",
+            currentPath === href || currentPath.startsWith(href + "/")
+              ? "text-dark-rose"
+              : "text-bark/70",
+          ]}
+        >
+          {label}
+        </a>
+      ))
+    }
     <a
       href="/contact"
-      class="mt-3 px-5 py-2.5 bg-terracotta text-cream text-sm font-medium rounded-full text-center hover:bg-bark transition-colors"
+      class="mt-3 px-5 py-2.5 bg-dark-rose text-cream text-sm font-medium rounded-full text-center hover:bg-bark transition-colors"
     >
       Book a Session
     </a>

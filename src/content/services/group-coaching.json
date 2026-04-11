@@ -1,0 +1,25 @@
+{
+  "title": "Group Coaching & Workshops",
+  "icon": "✨",
+  "heroImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac",
+  "tagline": "Collective containers where shared presence multiplies the healing.",
+  "descriptionHeading": "The power of group work",
+  "description1": "Placeholder description — describe what makes group work uniquely powerful. How does witnessing and being witnessed by others create something that one-on-one sessions can't?",
+  "description2": "What themes do your workshops typically cover? How are the sessions structured? What can participants expect to leave with?",
+  "itemsHeading": "Typical workshop themes",
+  "items": [
+    "Identity and self-expression",
+    "Boundaries and nervous system regulation",
+    "Body literacy and somatic awareness",
+    "Purpose and creative living",
+    "Relationships and communication",
+    "Seasonal living and cyclical rhythms"
+  ],
+  "whoIsThisFor": "Placeholder — describe the ideal participant. Are these open to all, or themed for specific groups (women, creatives, etc.)? What prior experience, if any, is helpful?",
+  "sessionDetails": [
+    { "label": "Format", "value": "Half-day & full-day workshops" },
+    { "label": "Group size", "value": "6–12 participants" },
+    { "label": "Location", "value": "In-person (venue TBC)" },
+    { "label": "Investment", "value": "Placeholder pricing" }
+  ]
+}
