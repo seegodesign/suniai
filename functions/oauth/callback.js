@@ -14,11 +14,25 @@ export async function onRequest({ request, env }) {
     }),
   });
 
-  const { access_token, error } = await response.json();
+  const data = await response.json();
 
-  const content = error
-    ? `<script>window.opener.postMessage('error', '*')</script>`
-    : `<script>window.opener.postMessage('authorization:github:success:${JSON.stringify({ token: access_token, provider: 'github' })}', '*')</script>`;
+  if (data.error || !data.access_token) {
+    return new Response(
+      `<!doctype html><html><body><script>
+        window.opener && window.opener.postMessage("authorization:github:error:" + ${JSON.stringify(JSON.stringify(data))}, "*");
+        window.close();
+      </script></body></html>`,
+      { headers: { 'Content-Type': 'text/html' } }
+    );
+  }
 
-  return new Response(content, { headers: { 'Content-Type': 'text/html' } });
+  const payload = JSON.stringify({ token: data.access_token, provider: 'github' });
+
+  return new Response(
+    `<!doctype html><html><body><script>
+      window.opener && window.opener.postMessage("authorization:github:success:" + ${JSON.stringify(payload)}, "*");
+      window.close();
+    </script></body></html>`,
+    { headers: { 'Content-Type': 'text/html' } }
+  );
 }
