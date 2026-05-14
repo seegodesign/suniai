@@ -36,8 +36,8 @@ const faq = defineCollection({
 const services = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/services' }),
   schema: z.object({
+    draft: z.boolean().optional().default(false),
     title: z.string(),
-    icon: z.string(),
     tagline: z.string(),
     descriptionHeading: z.string(),
     heroImage: z.string().optional(),
@@ -61,10 +61,41 @@ const home = defineCollection({
     heroCta2Label: z.string(),
     heroCta2Href: z.string(),
     aboutHeading: z.string(),
-    aboutBody1: z.string(),
-    aboutBody2: z.string(),
+    aboutBodies: z.array(z.string()).optional().default([]),
     servicesHeading: z.string(),
   }),
 });
 
-export const collections = { blog, testimonials, faq, services, home };
+const contact = defineCollection({
+  loader: glob({ pattern: 'contact.json', base: './src/content' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    eyebrow: z.string(),
+    heading: z.string(),
+    subheading: z.string(),
+    heroImage: z.string(),
+    formId: z.string(),
+    formName: z.string(),
+    formHeight: z.number().int().positive().optional().default(587),
+    iframeTitle: z.string().optional().default('Contact Form'),
+  }),
+});
+
+const servicesPage = defineCollection({
+  loader: glob({ pattern: 'services-page.json', base: './src/content' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    eyebrow: z.string(),
+    heading: z.string(),
+    subheading: z.string(),
+    heroImage: z.string(),
+    ctaHeading: z.string(),
+    ctaBody: z.string(),
+    ctaLabel: z.string(),
+    ctaHref: z.string(),
+  }),
+});
+
+export const collections = { blog, testimonials, faq, services, home, contact, servicesPage };

@@ -1,0 +1,165 @@
+---
+import { getCollection, render } from "astro:content";
+
+const allTestimonials = await getCollection("testimonials");
+const testimonialSlides = await Promise.all(
+  allTestimonials
+    .sort((a, b) => {
+      if (a.data.featured && !b.data.featured) return -1;
+      if (!a.data.featured && b.data.featured) return 1;
+      return a.data.name.localeCompare(b.data.name);
+    })
+    .map(async (entry) => {
+      const { Content } = await render(entry);
+      return { data: entry.data, Content };
+    }),
+);
+---
+
+<section class="max-w-3xl mx-auto px-6 py-24 text-center">
+  <div id="quote-slider" class="grid mb-8">
+    {
+      testimonialSlides.map(({ data, Content }, i) => (
+        <div
+          data-slide={i}
+          class:list={[
+            "row-start-1 col-start-1 transition-opacity duration-1000",
+            i === 0
+              ? "opacity-100"
+              : "opacity-0 pointer-events-none select-none",
+          ]}
+        >
+          <blockquote
+            class="font-tangerine text-2xl md:text-3xl text-bark leading-relaxed italic mb-6 overflow-hidden [&>p]:inline"
+            style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;"
+          >
+            &ldquo;<Content />
+          </blockquote>
+          <div class="flex items-center justify-center gap-3">
+            {data.photo && (
+              <img
+                src={data.photo}
+                alt={data.name}
+                width="36"
+                height="36"
+                class="w-9 h-9 rounded-full object-cover ring-2 ring-sand"
+              />
+            )}
+            <p class="text-sm font-medium text-bark/50 uppercase tracking-widest">
+              — {data.name}, {data.service}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="flex items-center justify-center gap-4 mb-8">
+    <button
+      id="slider-prev"
+      aria-label="Previous testimonial"
+      class="w-9 h-9 flex items-center justify-center rounded-full border border-sand text-bark/50 hover:border-bark hover:text-bark transition-colors"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <div class="flex gap-2">
+      {
+        testimonialSlides.map((_, i) => (
+          <button
+            data-dot={i}
+            class:list={[
+              "w-2 h-2 rounded-full transition-colors duration-300",
+              i === 0 ? "bg-bark" : "bg-sand",
+            ]}
+            aria-label={`Testimonial ${i + 1}`}
+          />
+        ))
+      }
+    </div>
+
+    <button
+      id="slider-next"
+      aria-label="Next testimonial"
+      class="w-9 h-9 flex items-center justify-center rounded-full border border-sand text-bark/50 hover:border-bark hover:text-bark transition-colors"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+
+  <a
+    href="/testimonials"
+    class="inline-block text-sm text-dark-rose font-medium hover:underline"
+  >
+    Read more testimonials →
+  </a>
+</section>
+
+<script>
+  const slider = document.getElementById("quote-slider");
+  if (slider) {
+    const slides = Array.from(
+      slider.querySelectorAll<HTMLElement>("[data-slide]"),
+    );
+    const dots = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-dot]"),
+    );
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    function goTo(index: number) {
+      slides[current].classList.add(
+        "opacity-0",
+        "pointer-events-none",
+        "select-none",
+      );
+      slides[current].classList.remove("opacity-100");
+      dots[current].classList.remove("bg-bark");
+      dots[current].classList.add("bg-sand");
+
+      current = ((index % slides.length) + slides.length) % slides.length;
+
+      slides[current].classList.remove(
+        "opacity-0",
+        "pointer-events-none",
+        "select-none",
+      );
+      slides[current].classList.add("opacity-100");
+      dots[current].classList.remove("bg-sand");
+      dots[current].classList.add("bg-bark");
+    }
+
+    function startTimer() {
+      timer = setInterval(() => goTo(current + 1), 10000);
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        goTo(i);
+        clearInterval(timer);
+        startTimer();
+      });
+    });
+
+    const prevBtn = document.getElementById("slider-prev");
+    const nextBtn = document.getElementById("slider-next");
+
+    prevBtn?.addEventListener("click", () => {
+      goTo(current - 1);
+      clearInterval(timer);
+      startTimer();
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      goTo(current + 1);
+      clearInterval(timer);
+      startTimer();
+    });
+
+    startTimer();
+  }
+</script>

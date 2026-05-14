@@ -1,15 +1,14 @@
 {
   "title": "Online Sessions",
-  "icon": "💻",
   "heroImage": "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b",
   "tagline": "The same depth of presence — delivered from wherever you are.",
   "descriptionHeading": "Working together online",
-  "description1": "Placeholder — describe how online sessions work. What platform do you use? How is the experience adapted for video? What works especially well in the online format?",
-  "description2": "Address any common concerns — does the depth of somatic or coaching work translate online? What do you do to create safety and presence across a screen?",
+  "description1": "While I deeply value in-person connection, I also recognize that life’s circumstances don’t always allow for it. Whether you’re navigating a move, living in a remote area, or simply prefer the convenience of connecting from your own space, online sessions offer a powerful way to engage in this work without geographical limitations. Through video calls, we can create a shared container that fosters presence, connection, and transformation — even across the screen.",
+  "description2": "Address any common concerns — does the depth of somatic or mentorship work translate online? What do you do to create safety and presence across a screen?",
   "itemsHeading": "Available online",
   "items": [
-    "Life coaching (1:1)",
-    "Somatic mind-body coaching",
+    "Mentorship (1:1)",
+    "Somatic mind-body mentorship",
     "Breathwork guidance",
     "Mindfulness and presence practices",
     "Group workshops (select sessions)"
@@ -17,8 +16,8 @@
   "whoIsThisFor": "A quiet, private space. A good internet connection. A device with a camera and microphone. And an open, curious mind — everything else, we create together.",
   "sessionDetails": [
     { "label": "Platform", "value": "Zoom / Google Meet" },
-    { "label": "Duration", "value": "60–90 minutes" },
-    { "label": "Timezone", "value": "Flexible" },
-    { "label": "Investment", "value": "Placeholder pricing" }
+    { "label": "Duration", "value": "60 minutes" },
+    { "label": "Investment", "value": "$185 per session" },
+    { "label": "Timezone", "value": "Flexible" }
   ]
 }

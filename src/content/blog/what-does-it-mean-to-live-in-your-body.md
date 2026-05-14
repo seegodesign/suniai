@@ -12,8 +12,6 @@ heroImage: https://images.unsplash.com/photo-1522075782449-e45a34f1ddfb?q=80&w=2
 
 Most of us were raised in systems that rewarded clear thinking, quick answers, and productivity — and quietly penalised slowness, feeling, and not-knowing. Over time, many of us learned to live almost entirely from the neck up.
 
-This post is a placeholder. Replace with your full writing here.
-
 ## The body as a navigation system
 
 Your nervous system is registering information constantly. Long before your thinking mind catches up, your body has already responded — with a contraction in the chest, a loosening in the shoulders, a pull in the gut.

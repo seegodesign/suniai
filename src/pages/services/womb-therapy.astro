@@ -2,13 +2,15 @@
 import ServicePage from '../../components/ServicePage.astro';
 import { getEntry } from 'astro:content';
 
-const service = await getEntry('services', 'somatic-work');
-const { title, icon, heroImage, tagline, descriptionHeading, description1, description2, itemsHeading, items, whoIsThisFor, sessionDetails } = service.data;
+const service = await getEntry('services', 'womb-therapy');
+if (!service || service.data?.draft) {
+  return Astro.redirect('/services');
+}
+const { title, heroImage, tagline, descriptionHeading, description1, description2, itemsHeading, items, whoIsThisFor, sessionDetails } = service.data;
 ---
 
 <ServicePage
   title={title}
-  icon={icon}
   heroImage={heroImage}
   tagline={tagline}
   descriptionHeading={descriptionHeading}

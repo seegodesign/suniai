@@ -7,12 +7,13 @@ import capriPortrait from "../assets/capri4.jpg";
 
 <Layout
   title="About"
-  description="Meet Suniai — holistic life coach, mind-body practitioner, and licensed massage therapist."
+  description="Meet Capri, a Holy Motherhood Mentor and Womb Therapist supporting women through sacred, body-led healing."
 >
   <!-- Page hero -->
   <PageHero
-    eyebrow="About"
-    heading="The person behind the practice."
+    eyebrow=""
+    heading="About Suniai"
+    subheading="Suniai (ਸੁਣਿਐ) means “to truly listen.” It’s the practice of slowing down, tuning in, and hearing yourself—your body, your needs, your inner voice. Here, healing begins with being deeply heard."
     image="https://images.unsplash.com/photo-1572203176799-40836603681d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   />
 
@@ -20,7 +21,7 @@ import capriPortrait from "../assets/capri4.jpg";
   <section
     class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-5 gap-16 items-start"
   >
-    <!-- Portrait placeholder -->
+    <!-- Portrait -->
     <div class="md:col-span-2">
       <Image
         src={capriPortrait}
@@ -31,24 +32,16 @@ import capriPortrait from "../assets/capri4.jpg";
 
     <!-- Bio text -->
     <div class="md:col-span-3">
-      <h2 class="font-tangerine text-6xl text-bark mb-6">
+      <h2 class="font-tangerine text-5xl text-bark mb-6">
         Aloha, my name is Capri.
       </h2>
       <div class="space-y-4 text-bark/70 leading-relaxed">
         <p>
-          Placeholder bio paragraph one — tell your story here. Where did you
-          grow up? What brought you to this work? What was the turning point
-          that led you to become a practitioner?
-        </p>
-        <p>
-          Placeholder bio paragraph two — describe your approach and philosophy.
-          What do you believe about the connection between the mind and body?
-          How does your work differ from conventional coaching or therapy?
-        </p>
-        <p>
-          Placeholder bio paragraph three — what do you love most about this
-          work? What does a typical client experience look like, and what do you
-          hope they walk away feeling?
+          Suniai is my heart-centered practice where I serve as a Holy
+          Motherhood Mentor and Womb Therapist. I support women through sacred,
+          body-led healing so they can reconnect to their intuition, restore
+          their nervous system, and move through life from their inner
+          authority.
         </p>
       </div>
 
@@ -62,15 +55,15 @@ import capriPortrait from "../assets/capri4.jpg";
         <ul class="space-y-2 text-sm text-bark/70">
           {
             [
-              "Temple of the Rose Initiation — Pisac, Peru 2014",
-              "Ancient Thai Massage Training — Pisac, Peru 2014",
-              "Usui Reiki Master Teacher Certification — Portland, OR 2014",
-              "Licensed Massage Therapist — East West College of the Healing Arts, 2017",
-              "Sacred Pelvic Healing Massage Training - Portland, OR 2018",
-              "Kundalini Yoga Teacher Certification — Hawaii 2021",
-              "Mana Lomi Level 3 Certification — Kona, Hawaii 2024",
               "Certified Holistic Life Coach — MindBodyFood Institute, 2026",
               "Certified Mind-Body Practitioner — MindBodyFood Institute, 2026",
+              "Licensed Massage Therapist — East West College of the Healing Arts, 2017",
+              "Sacred Pelvic Healing Massage Training - Portland, OR 2018",
+              "Mana Lomi Level 3 Certification — Kona, Hawaii 2024",
+              "Usui Reiki Master Teacher Certification — Portland, OR 2014",
+              "Kundalini Yoga Teacher Certification — Hawaii 2021",
+              "Ancient Thai Massage Training — Pisac, Peru 2014",
+              "Temple of the Rose Initiation — Pisac, Peru 2014",
             ].map((item) => (
               <li class="flex items-start gap-3">
                 <span class="mt-1 w-1.5 h-1.5 rounded-full bg-dark-rose shrink-0" />
@@ -91,15 +84,10 @@ import capriPortrait from "../assets/capri4.jpg";
   </section>
 
   <!-- Philosophy / values -->
-  <section class="bg-sand-light py-20">
+  <section class="bg-peaches-n-cream py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <p
-        class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3 text-center"
-      >
-        My Philosophy
-      </p>
       <h2 class="font-tangerine text-6xl text-bark text-center mb-14">
-        The values that guide my work.
+        My Philosophy
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {

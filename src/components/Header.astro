@@ -3,16 +3,18 @@ import { Image } from "astro:assets";
 import suniaiLogo from "../assets/suniai-logo.png";
 import { getCollection } from 'astro:content';
 
-const ORDER = ['life-coaching', 'group-coaching', 'massage-therapy', 'somatic-work', 'womb-clearing', 'online-sessions'];
+// const ORDER = ['life-coaching', 'group-coaching', 'massage-therapy', 'womb-therapy', 'online-sessions'];
+const ORDER = ['life-coaching', 'massage-therapy', 'womb-therapy', 'online-sessions'];
 const allServices = await getCollection('services');
+const publishedServices = allServices.filter((s) => !s.data.draft);
 const serviceLinks = ORDER
-  .map((id) => allServices.find((s) => s.id === id))
+  .map((id) => publishedServices.find((s) => s.id === id))
   .filter(Boolean)
   .map((s) => ({ label: s!.data.title, href: `/services/${s!.id}` }));
 
 const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  // { label: "Blog", href: "/blog" },
   { label: "Testimonials", href: "/testimonials" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
@@ -68,11 +70,11 @@ const currentPath = Astro.url.pathname;
                 </a>
               </li>
             ))}
-            <li class="border-t border-sand mt-1 pt-1">
+            <!-- <li class="border-t border-sand mt-1 pt-1">
               <a href="/services" class="block px-5 py-2.5 text-sm text-terracotta font-medium hover:bg-sand transition-colors">
                 All services →
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>

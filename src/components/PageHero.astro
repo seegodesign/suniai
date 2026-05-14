@@ -41,7 +41,7 @@ const { eyebrow, heading, subheading, image, tint = 'bg-bark/50' } = Astro.props
     </h1>
     {subheading && (
       <p class:list={[
-        'text-lg leading-relaxed',
+        'text-md leading-relaxed',
         image ? 'text-cream/80' : 'text-bark/70',
       ]}
         set:html={subheading}

@@ -1,11 +1,10 @@
 {
-  "title": "Life Coaching (1:1)",
-  "icon": "🌱",
-  "heroImage": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+  "title": "Mentorship (1:1)",
+  "heroImage": "/images/rose3.webp",
   "tagline": "A dedicated space to slow down, get clear, and move forward — at your pace, in your way.",
-  "descriptionHeading": "What is life coaching with Suniai?",
-  "description1": "Placeholder description of the coaching approach. Describe the session format, what clients can expect, and the underlying philosophy you bring.",
-  "description2": "Add more context here — how do sessions typically unfold? What tools or modalities might you draw on? How does it feel different from therapy or consulting?",
+  "descriptionHeading": "What is mentorship with Suniai?",
+  "description1": "Motherhood can pull you in a hundred directions, often leaving your own needs at the very bottom of the list. This mentorship space is designed to bring you back to yourself-not by fixing or changing who you are, but by helping you reconnect with the clarity, strength, and intuition that are already within you. Through supportive, one-on-one conversations, you’ll have the space to reflect, reset, and gently shift the patterns and pressures that no longer serve you, so your life begins to feel more grounded, spacious, and aligned.",
+  "description2": "This work goes beyond surface-level goal setting. It’s about creating meaningful, lasting change by understanding how your thoughts, emotions, and daily experiences shape your life. Together, we slow things down, build awareness, and approach growth with compassion instead of force. As you move through the process, you can begin to release mental and emotional weight, shift limiting beliefs, and navigate motherhood with more ease, confidence, and self-trust.",
   "itemsHeading": "What we might explore together",
   "items": [
     "Life transitions and big decisions",
@@ -15,11 +14,27 @@
     "Relationships and communication",
     "Career clarity and creative direction"
   ],
-  "whoIsThisFor": "Placeholder — describe the ideal person for this service. What stage of life might they be in? What might they be feeling? What are they hoping to change?",
+  "whoIsThisFor": "This mentorship is for mothers who are ready to invest in themselves and their growth. Whether you’re navigating a major life transition, feeling stuck in old patterns, or simply craving more clarity and connection in your life, this space is for you. No prior experience with coaching or personal development is necessary — just an open mind, a willingness to explore, and a desire to create positive change in your life.",
   "sessionDetails": [
-    { "label": "Duration", "value": "60–90 minutes" },
-    { "label": "Format", "value": "In-person or online" },
-    { "label": "Frequency", "value": "Weekly or fortnightly" },
-    { "label": "Investment", "value": "Placeholder pricing" }
+    {
+      "label": "Format",
+      "value": "1:1 in-person or online"
+    },
+    {
+      "label": "Duration",
+      "value": "60 minutes"
+    },
+    {
+      "label": "Investment",
+      "value": "$185 per session"
+    },
+    {
+      "label": "Package",
+      "value": "12 sessions for $2,120 (save $100)"
+    },
+    {
+      "label": "3-hour immersion",
+      "value": "Holy Motherhood Mentorship + Womb Therapy (inquire for pricing)"
+    }
   ]
 }

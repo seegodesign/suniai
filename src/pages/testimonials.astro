@@ -23,7 +23,7 @@ const testimonials = await Promise.all(
 
 <Layout
   title="Testimonials"
-  description="What clients say about working with Suniai — life coaching, somatic work, massage therapy, and more."
+  description="What clients say about working with Capri at Suniai through motherhood mentorship, womb therapy, and somatic support."
 >
 
   <PageHero
@@ -34,7 +34,7 @@ const testimonials = await Promise.all(
   />
 
   <section class="max-w-6xl mx-auto px-6 py-20">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
       {testimonials.map(({ data, Content }) => (
         <TestimonialCard
           name={data.name}

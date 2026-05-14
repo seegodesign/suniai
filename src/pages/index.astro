@@ -2,25 +2,25 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import capriPortrait from "../assets/capri.jpg";
+import capriPortrait2 from "../assets/capri5.jpg";
 import { getCollection, getEntry, render } from "astro:content";
 
-const homeEntry = await getEntry('home', 'home');
+const homeEntry = await getEntry("home", "home");
 const home = homeEntry!.data;
 
 const ORDER = [
   "life-coaching",
   "group-coaching",
   "massage-therapy",
-  "somatic-work",
-  "womb-clearing",
+  "womb-therapy",
   "online-sessions",
 ];
 const allServices = await getCollection("services");
-const homeServices = ORDER.map((id) => allServices.find((s) => s.id === id))
+const publishedServices = allServices.filter((s) => !s.data.draft);
+const homeServices = ORDER.map((id) => publishedServices.find((s) => s.id === id))
   .filter(Boolean)
   .map((s) => ({
     title: s!.data.title,
-    icon: s!.data.icon,
     desc: s!.data.tagline,
     href: `/services/${s!.id}`,
   }));
@@ -42,13 +42,23 @@ const testimonialSlides = await Promise.all(
 
 <Layout
   title="Suniai"
-  description="Holistic life coaching, somatic mind-body work, and therapeutic massage. Return to yourself with Suniai."
+  description="Holy Motherhood Mentor and Womb Therapist supporting women to return to their body, intuition, and inner authority."
 >
   <!-- Hero -->
   <section
-    class="relative min-h-[93vh] flex items-center justify-center overflow-hidden bg-cover bg-center bg-fixed"
-    style="background-image: url(https://images.unsplash.com/photo-1562012266-d7b721321ff2?q=80&w=1170&auto=format&fit=crop)"
+    class="relative min-h-[93vh] flex items-center justify-center overflow-hidden"
   >
+    <!-- Background video -->
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover block"
+    >
+      <source src="/video/rose.mp4" type="video/mp4" />
+    </video>
     <!-- tinted overlay -->
     <div class="absolute inset-0 bg-dark-rose/70"></div>
 
@@ -58,18 +68,18 @@ const testimonialSlides = await Promise.all(
       >
         {home.heroEyebrow}
       </p>
-      <h1 class="font-tangerine text-5xl md:text-8xl text-cream leading-tight mb-8">
+      <h1
+        class="font-tangerine text-5xl md:text-8xl text-cream leading-tight mb-8"
+      >
         {home.heroHeading}
       </h1>
-      <p
-        class="text-lg text-cream/80 leading-relaxed max-w-xl mx-auto mb-10"
-      >
+      <p class="text-lg text-cream/80 leading-relaxed max-w-xl mx-auto mb-10">
         {home.heroBody}
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href={home.heroCta1Href}
-          class="px-8 py-3.5 bg-dark-rose/50 border border-cream/50 text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
+          class="px-8 py-3.5 bg-white border border-cream/50 text-dark-rose font-medium rounded-full hover:bg-rose hover:text-white transition-colors"
         >
           {home.heroCta1Label}
         </a>
@@ -82,26 +92,24 @@ const testimonialSlides = await Promise.all(
       </div>
     </div>
   </section>
-
   <!-- Intro / About teaser -->
   <section
-    class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-16 items-center"
+    class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-16 items-start"
   >
     <div>
-      <p
-        class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-4"
+      <h2
+        class="font-tangerine text-gradient-gold text-4xl md:text-5xl text-bark mb-6"
       >
-        About Suniai
-      </p>
-      <h2 class="font-tangerine text-4xl md:text-5xl text-bark mb-6">
         {home.aboutHeading}
       </h2>
-      <p class="text-bark/70 leading-relaxed mb-4">
-        {home.aboutBody1}
-      </p>
-      <p class="text-bark/70 leading-relaxed mb-8">
-        {home.aboutBody2}
-      </p>
+      {home.aboutBodies.map((paragraph, i) => (
+        <p class:list={[
+          "text-bark/70 leading-relaxed",
+          i === home.aboutBodies.length - 1 ? "mb-8" : "mb-4",
+        ]}>
+          {paragraph}
+        </p>
+      ))}
       <a
         href="/about"
         class="inline-flex items-center gap-2 text-dark-rose font-medium hover:gap-3 transition-all"
@@ -133,52 +141,99 @@ const testimonialSlides = await Promise.all(
   </section>
 
   <!-- Services strip -->
-  <section class="relative py-20 overflow-hidden">
+  <section class="relative py-24 overflow-hidden">
     <img
-      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1173&auto=format&fit=crop"
+      src="/images/rose.webp"
       alt=""
       aria-hidden="true"
       class="absolute inset-0 w-full h-full object-cover"
     />
-    <div class="absolute inset-0 bg-sand/80"></div>
+    <div class="absolute inset-0 bg-cream/70"></div>
+
     <div class="relative z-10 max-w-6xl mx-auto px-6">
-      <p
-        class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-3 text-center"
-      >
-        What I Offer
-      </p>
-      <h2 class="font-tangerine text-4xl text-bark text-center mb-14">{home.servicesHeading}</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          homeServices.map(({ title, icon, desc, href }) => (
-            <a
-              href={href}
-              class="group bg-cream rounded-2xl p-7 border border-sand hover:border-dark-rose hover:shadow-md transition-all"
-            >
-              <h3 class="font-tangerine text-4xl text-bark mb-3 group-hover:text-dark-rose transition-colors">
-                {title}
-              </h3>
-              <p class="text-sm text-bark/60 leading-relaxed">{desc}</p>
-            </a>
-          ))
-        }
-        <a
-          href="/services"
-          class="group bg-dark-rose rounded-2xl p-7 flex flex-col justify-end text-cream"
-        >
-          <h3 class="font-tangerine text-4xl mb-3">View all services</h3>
-          <span
-            class="text-sm opacity-80 group-hover:opacity-100 transition-opacity flex items-center gap-2"
+      <h2 class="font-tangerine text-6xl text-bark mb-3 text-center lg:text-left">
+        {home.servicesHeading}
+      </h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-14 lg:gap-20 items-start">
+        <div class="lg:col-span-3">
+          <ul>
+            {
+              homeServices.map(({ title, desc, href }) => (
+                <li class="border-b border-sand/70 last:border-b-0">
+                  <div class="py-6 pr-2">
+                    <a href={href} class="group inline-block transition-colors">
+                      <h3 class="font-tangerine text-3xl text-bark group-hover:text-dark-rose transition-colors">
+                        {title}
+                      </h3>
+                    </a>
+                    <p class="mt-2 text-sm text-bark/60 leading-relaxed">
+                      {desc}
+                    </p>
+                    <a
+                      href={href}
+                      class="inline-flex items-center gap-2 mt-3 text-sm text-dark-rose font-medium hover:gap-3 transition-all"
+                    >
+                      View service
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        ><path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+                      >
+                    </a>
+                  </div>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2 text-bark/75 mt-8">
+          <p class="text-md leading-relaxed mb-6">
+            Each offering is designed to meet you where you are. Some days you may
+            need gentle bodywork, some seasons call for deeper womb healing, and
+            other moments ask for clear, grounded mentorship.
+          </p>
+          <p class="text-md leading-relaxed mb-6">
+            This work is not one-size-fits-all. We listen to what your body and life
+            are asking for, then choose the most supportive path for this chapter.
+          </p>
+          <p class="text-md leading-relaxed mb-8">
+            If you are unsure where to begin, we can start with a conversation and
+            find the right fit together.
+          </p>
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 text-dark-rose font-medium hover:gap-3 transition-all"
           >
-            Explore →
-          </span>
-        </a>
+            Get support that fits your season
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+            >
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Pull-quote testimonial slider -->
-  <section class="max-w-3xl mx-auto px-6 py-24 text-center">
+  <!-- <section class="max-w-3xl mx-auto px-6 py-24 text-center">
     <div id="quote-slider" class="grid mb-8">
       {
         testimonialSlides.map(({ data, Content }, i) => (
@@ -237,7 +292,7 @@ const testimonialSlides = await Promise.all(
     >
       Read more testimonials →
     </a>
-  </section>
+  </section> -->
 
   <script>
     const slider = document.getElementById("quote-slider");
@@ -294,8 +349,8 @@ const testimonialSlides = await Promise.all(
     class="relative text-cream overflow-hidden min-h-[70vh] flex items-center justify-center"
   >
     <Image
-      src="https://images.unsplash.com/photo-1682695795931-a546abdb6733?q=80&w=1170&auto=format&fit=crop"
-      alt=""
+      src={capriPortrait2}
+      alt="Portrait of Capri"
       aria-hidden="true"
       width={2000}
       height={1333}
@@ -305,7 +360,7 @@ const testimonialSlides = await Promise.all(
     <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center">
       <h2 class="font-tangerine text-4xl md:text-7xl mb-6">Ready to begin?</h2>
       <p class="text-cream/70 text-lg mb-10 leading-relaxed">
-        Whether you're looking for one-on-one coaching, bodywork, or a gentle
+        Whether you're looking for one-on-one mentorship, bodywork, or a gentle
         place to start — reach out. Every journey begins with a single
         conversation.
       </p>

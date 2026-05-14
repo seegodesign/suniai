@@ -1,11 +1,11 @@
 {
-  "title": "Group Coaching & Workshops",
-  "icon": "✨",
+  "draft": true,
+  "title": "Group Mentorship & Workshops",
   "heroImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac",
   "tagline": "Collective containers where shared presence multiplies the healing.",
   "descriptionHeading": "The power of group work",
-  "description1": "Placeholder description — describe what makes group work uniquely powerful. How does witnessing and being witnessed by others create something that one-on-one sessions can't?",
-  "description2": "What themes do your workshops typically cover? How are the sessions structured? What can participants expect to leave with?",
+  "description1": "Group work offers a unique opportunity for growth and transformation. Witnessing and being witnessed by others creates a powerful dynamic that one-on-one sessions can't replicate. The collective energy, shared experiences, and diverse perspectives foster deeper insights and accelerated personal development.",
+  "description2": "Our workshops typically cover themes such as identity, self-expression, boundaries, nervous system regulation, body literacy, somatic awareness, purpose, creative living, relationships, communication, and seasonal living. Sessions are structured to provide a balance of experiential exercises, group discussions, and reflective practices, ensuring participants leave with practical tools and profound insights.",
   "itemsHeading": "Typical workshop themes",
   "items": [
     "Identity and self-expression",
@@ -15,11 +15,19 @@
     "Relationships and communication",
     "Seasonal living and cyclical rhythms"
   ],
-  "whoIsThisFor": "Placeholder — describe the ideal participant. Are these open to all, or themed for specific groups (women, creatives, etc.)? What prior experience, if any, is helpful?",
+  "whoIsThisFor": "Group mentorship and workshops are for mothers who are seeking connection, growth, and transformation in a shared container. Whether you’re looking to deepen your self-awareness, explore new perspectives, or simply experience the power of collective presence, these sessions offer a unique opportunity to learn and grow alongside others who are on a similar journey. No prior experience with coaching or personal development is necessary — just an open heart, a willingness to engage, and a desire to connect with others in a meaningful way.",
   "sessionDetails": [
-    { "label": "Format", "value": "Half-day & full-day workshops" },
-    { "label": "Group size", "value": "6–12 participants" },
-    { "label": "Location", "value": "In-person (venue TBC)" },
-    { "label": "Investment", "value": "Placeholder pricing" }
+    {
+      "label": "Format",
+      "value": "Half-day & full-day workshops"
+    },
+    {
+      "label": "Group size",
+      "value": "6–12 participants"
+    },
+    {
+      "label": "Location",
+      "value": "In-person (venue TBC)"
+    }
   ]
 }

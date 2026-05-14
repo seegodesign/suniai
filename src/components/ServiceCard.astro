@@ -25,15 +25,15 @@ const { title, description, heroImage, href, tags = [] } = Astro.props;
     </div>
   ) : null}
   <div class="p-7 flex flex-col flex-1">
-  <h3 class="font-tangerine text-xl text-bark mb-3 group-hover:text-dark-rose transition-colors">{title}</h3>
+  <h3 class="font-tangerine text-4xl text-bark mb-3 group-hover:text-dark-rose transition-colors">{title}</h3>
   <p class="text-sm text-bark/60 leading-relaxed flex-1">{description}</p>
-  {tags.length > 0 && (
+  <!-- {tags.length > 0 && (
     <div class="flex flex-wrap gap-2 mt-5">
       {tags.map((tag) => (
         <span class="px-3 py-0.5 text-xs rounded-full bg-sand text-bark/60">{tag}</span>
       ))}
     </div>
-  )}
+  )} -->
   <div class="mt-6 flex items-center gap-1.5 text-sm text-dark-rose font-medium opacity-0 group-hover:opacity-100 transition-opacity">
     Learn more
     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

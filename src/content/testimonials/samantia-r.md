@@ -1,9 +1,9 @@
 ---
 name: Samantia R.
-service: Womb Clearing
+service: Womb Therapy
 featured: false
 ---
-I’ve benefited immensely from the womb clearing I received with Capri.
+I’ve benefited immensely from the Womb Therapy I received with Capri.
 
 I noticed a dramatic improvement in my awareness around my womb and surrounding organs.
 

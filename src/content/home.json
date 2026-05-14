@@ -1,13 +1,24 @@
 {
-  "heroEyebrow": "Holistic Life Coaching · Mind-Body Work · Massage Therapy",
-  "heroHeading": "Nourish your soul",
-  "heroBody": "Suniai offers a nurturing space to reconnect with your body, quiet your mind, and step into the life you most want to live.",
+  "heroEyebrow": "Holy Motherhood Mentorship · Womb Therapy · Somatic Support",
+  "heroHeading": "Soul nourishment for women.",
+  "heroBody": "Suniai offers a nurturing space to reconnect with your body, quiet your mind, and align with Spirit.",
   "heroCta1Label": "Book a Session",
   "heroCta1Href": "/contact",
   "heroCta2Label": "Explore Services",
   "heroCta2Href": "/services",
-  "aboutHeading": "A gentle guide on the path back to wholeness.",
-  "aboutBody1": "Suniai is a certified holistic life coach, mind-body practitioner, and licensed massage therapist whose work sits at the intersection of the somatic and the sacred — bringing the wisdom of the body into every conversation.",
-  "aboutBody2": "Placeholder bio text — add your background, training, and philosophy here.",
-  "servicesHeading": "Services"
+  "aboutHeading": "Your guide on the path back to wholeness.",
+  "aboutBodies": [
+    "You spend so much of your life holding others—this is a space where you are finally held.",
+    "I offer nurturing massage and intuitive coaching for mothers who are ready to soften, reconnect, and come home to themselves. My work blends gentle, restorative touch with deep, soul-centered guidance, creating a sanctuary where your body can exhale and your inner voice can be heard again.",
+    "Motherhood is a powerful initiation -beautiful, demanding, and ever-evolving. Whether you're feeling depleted, overwhelmed, or simply longing for a deeper sense of balance and clarity, you are welcome here just as you are. Together, we'll create space to release what no longer serves you, restore your energy, and reconnect with the wisdom that already lives within you.",
+    "This is more than self-care, it's a remembering.",
+    "A remembering of your strength, your softness, and your sacred wholeness.",
+    "You give so much of yourself-this is where you are invited to receive.",
+    "I offer bespoke massage and deeply attuned coaching experiences for mothers who are ready to step out of depletion and into a state of calm, radiance, and quiet luxury. Each session is thoughtfully curated, blending slow, restorative touch with intuitive guidance to create an experience that nourishes both body and spirit.",
+    "Within this space, time softens. The nervous system unwinds, the mind grows still, and something deeper begins to awaken. Here, you are not needed, rushed, or responsible for anyone else-you are simply held, supported, and cared for with intention and reverence.",
+    "Motherhood is a profound and sacred journey, yet even the most devoted mothers deserve to be replenished, cherished, and deeply seen. Whether you are seeking restoration, clarity, or a return to your natural rhythm, this is your place to land.",
+    "This is more than a treatment-it is an experience of coming back to yourself.",
+    "Refined. Restorative. Entirely yours."
+  ],
+  "servicesHeading": "My Offerings"
 }

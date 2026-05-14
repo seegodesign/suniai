@@ -5,14 +5,12 @@ description: Life transitions are disorienting by design. Here's how to navigate
 pubDate: 2026-01-08
 tags:
   - transitions
-  - life coaching
+  - mentorship
   - change
 heroImage: https://images.unsplash.com/photo-1737746110837-bbd6630c4d96?q=80&w=2228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 ---
 
 There comes a moment in many people's lives when they look around and realise: this doesn't fit anymore. The relationship, the career, the identity — it made sense once, and now it doesn't.
-
-This post is a placeholder. Replace with your full writing here.
 
 ## Why transitions feel so destabilising
 

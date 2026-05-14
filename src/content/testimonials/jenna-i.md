@@ -1,6 +1,6 @@
 ---
 name: Jenna I.
-service: Womb Clearing
+service: Womb Therapy
 featured: false
 photo: /images/jenna.jpeg
 ---

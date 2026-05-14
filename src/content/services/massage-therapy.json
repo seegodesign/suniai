@@ -1,11 +1,10 @@
 {
   "title": "Massage Therapy",
-  "icon": "🤲",
-  "heroImage": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874",
+  "heroImage": "/images/massage.webp",
   "tagline": "Therapeutic touch that meets your body exactly where it is.",
   "descriptionHeading": "About the massage work",
-  "description1": "Placeholder description — describe your massage philosophy. How do you approach the body? What makes your sessions different from a standard spa massage?",
-  "description2": "Describe how sessions are tailored. Do you integrate any breath, somatic awareness, or intention-setting into the session?",
+  "description1": "My approach to massage is deeply intuitive and client-led. I believe that the body holds its own wisdom, and my role is to listen and respond to what it needs in each moment. Whether you’re seeking relief from physical tension, emotional release, or simply a nurturing space to reconnect with your body, this work is designed to meet you where you are and support your unique needs. I draw from a variety of techniques — including Swedish massage, deep tissue work, myofascial release, trigger point therapy, lymphatic drainage, and restorative touch — tailoring each session to your specific goals and preferences.",
+  "description2": "I integrate breathwork, somatic awareness, and intention-setting into each session to enhance the therapeutic benefits and support holistic well-being.",
   "itemsHeading": "Techniques & modalities",
   "items": [
     "Swedish/relaxation massage",
@@ -15,11 +14,19 @@
     "Lymphatic drainage",
     "Restorative / nervous-system focused touch"
   ],
-  "whoIsThisFor": "Placeholder — describe who benefits most. People with chronic tension? Those going through stress? Those wanting to reconnect with their body?",
+  "whoIsThisFor": "Massage for women at all stages of life, from pregnancy to menopause and beyond. Whether you’re seeking relief from physical tension, emotional release, or simply a nurturing space to reconnect with your body, this work is designed to meet you where you are and support your unique needs.",
   "sessionDetails": [
-    { "label": "Duration", "value": "60 or 90 minutes" },
-    { "label": "Format", "value": "In-person only" },
-    { "label": "Location", "value": "Practice address TBC" },
-    { "label": "Investment", "value": "Placeholder pricing" }
+    {
+      "label": "Duration",
+      "value": "60 or 90 minutes"
+    },
+    {
+      "label": "Format",
+      "value": "In-person only"
+    },
+    {
+      "label": "Location",
+      "value": "Anywhere in Kauai"
+    }
   ]
 }

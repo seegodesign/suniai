@@ -7,9 +7,10 @@
 
 @theme {
   --color-cream: #FAF7F2;
-  --color-bark: #48272d;
-  --color-dark-rose: #b05f5f;
-  --color-rose: #df9393;
+  --color-peaches-n-cream: #FFE9E0;
+  --color-bark: #48272D;
+  --color-dark-rose: #D27E7E;
+  --color-rose: #DF9393;
   --color-sage: #8B9E6E;
   --color-sand: #E8DDD0;
   --color-sand-light: #F2EDE6;
@@ -33,5 +34,16 @@
 
   a {
     color: inherit;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(0deg, #985656, #C88B6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
   }
 }

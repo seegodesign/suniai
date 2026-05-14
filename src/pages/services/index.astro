@@ -2,7 +2,10 @@
 import Layout from "../../layouts/Layout.astro";
 import ServiceCard from "../../components/ServiceCard.astro";
 import PageHero from "../../components/PageHero.astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
+
+const servicesPageEntry = await getEntry("servicesPage", "services-page");
+const servicesPage = servicesPageEntry!.data;
 
 const allServices = await getCollection("services");
 
@@ -11,19 +14,18 @@ const ORDER = [
   "life-coaching",
   "group-coaching",
   "massage-therapy",
-  "somatic-work",
-  "womb-clearing",
+  "womb-therapy",
   "online-sessions",
 ];
 const TAGS: Record<string, string[]> = {
-  "life-coaching": ["1:1", "In-person", "Online"],
+  "life-coaching": ["60 min", "$185", "Package available"],
   "group-coaching": ["Group", "Workshops"],
   "massage-therapy": ["In-person", "Therapeutic"],
-  "somatic-work": ["1:1", "In-person", "Online"],
-  "womb-clearing": ["1:1", "In-person"],
-  "online-sessions": ["Online", "1:1"],
+  "womb-therapy": ["90/120 min", "$225-$285", "In-person"],
+  "online-sessions": ["Online", "60 min", "$185"],
 };
-const services = ORDER.map((id) => allServices.find((s) => s.id === id))
+const publishedServices = allServices.filter((s) => !s.data.draft);
+const services = ORDER.map((id) => publishedServices.find((s) => s.id === id))
   .filter(Boolean)
   .map((s) => ({
     title: s!.data.title,
@@ -35,15 +37,15 @@ const services = ORDER.map((id) => allServices.find((s) => s.id === id))
 ---
 
 <Layout
-  title="Services"
-  description="Explore Suniai's offerings — life coaching, group workshops, somatic work, massage therapy, and online sessions."
+  title={servicesPage.title}
+  description={servicesPage.description}
 >
   <!-- Hero -->
   <PageHero
-    eyebrow="Services"
-    heading="Find the support that's right for you."
-    image="https://images.unsplash.com/photo-1600706843784-6f0ad251f52f?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    subheading="Whether you're drawn to one-on-one coaching, bodywork, group practice, or something in between — there's a way to work together."
+    eyebrow={servicesPage.eyebrow}
+    heading={servicesPage.heading}
+    image={servicesPage.heroImage}
+    subheading={servicesPage.subheading}
   />
 
   <!-- Service cards grid -->
@@ -56,16 +58,15 @@ const services = ORDER.map((id) => allServices.find((s) => s.id === id))
   <!-- CTA -->
   <section class="bg-bark text-cream py-20">
     <div class="max-w-2xl mx-auto px-6 text-center">
-      <h2 class="font-tangerine text-4xl mb-5">Not sure where to start?</h2>
+      <h2 class="font-tangerine text-4xl mb-5">{servicesPage.ctaHeading}</h2>
       <p class="text-cream/70 mb-8 leading-relaxed">
-        Reach out and we'll have a short conversation to find the best fit for
-        where you are right now.
+        {servicesPage.ctaBody}
       </p>
       <a
-        href="/contact"
+        href={servicesPage.ctaHref}
         class="inline-block px-8 py-3.5 bg-dark-rose text-cream font-medium rounded-full hover:bg-cream hover:text-bark transition-colors"
       >
-        Get in Touch
+        {servicesPage.ctaLabel}
       </a>
     </div>
   </section>
