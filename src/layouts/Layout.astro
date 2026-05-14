@@ -40,15 +40,16 @@ const fullTitle = title === 'Suniai' ? 'Suniai' : `${title} | Suniai`;
 
 <script>
   function initFadeIn() {
-    const imgs = document.querySelectorAll<HTMLImageElement>('img:not([aria-hidden="true"])');
+    const imgs = document.querySelectorAll('img:not([aria-hidden="true"])');
     if (!imgs.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            (entry.target as HTMLElement).style.opacity = '1';
-            (entry.target as HTMLElement).style.translate = 'none';
+            if (!(entry.target instanceof HTMLElement)) return;
+            entry.target.style.opacity = '1';
+            entry.target.style.translate = 'none';
             observer.unobserve(entry.target);
           }
         });
@@ -57,6 +58,7 @@ const fullTitle = title === 'Suniai' ? 'Suniai' : `${title} | Suniai`;
     );
 
     imgs.forEach((img) => {
+      if (!(img instanceof HTMLElement)) return;
       img.style.opacity = '0';
       img.style.translate = '0 42px';
       img.style.transition = 'opacity 0.7s ease, translate 0.7s ease';
