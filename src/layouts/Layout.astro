@@ -10,11 +10,11 @@ interface Props {
 }
 
 const {
-  title = 'Suniai',
+  title,
   description = 'Holy motherhood mentorship and womb therapy to help women return to their body, intuition, and inner authority with Suniai.',
 } = Astro.props;
 
-const fullTitle = title === 'Suniai' ? 'Suniai' : `${title} | Suniai`;
+const fullTitle = title ? `${title} | Suniai` : 'Holy Motherhood Mentorship & Womb Therapy in Kauai | Suniai';
 ---
 
 <!doctype html>
