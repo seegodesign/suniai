@@ -21,21 +21,22 @@ const formSrc = `https://api.leadconnectorhq.com/widget/form/${contact.formId}`;
   />
 
   <section class="max-w-4xl mx-auto px-6 py-20">
-    <div class="relative" style={`min-height:${contact.formHeight}px`}>
+    <div class="relative" style="width:650px;height:540px">
       <div
         id={`${iframeId}-skeleton`}
         aria-hidden="true"
         class="absolute inset-0 z-10 rounded-[3px] bg-white p-6 sm:p-8 transition-opacity duration-300"
       >
         <div class="h-full w-full animate-pulse">
-          <div class="h-7 w-2/3 rounded bg-rose/25"></div>
-          <div class="mt-8 h-4 w-full rounded bg-sand"></div>
-          <div class="mt-3 h-4 w-5/6 rounded bg-sand"></div>
+          <div class="mt-3 h-4 w-1/6 rounded bg-sand"></div>
           <div class="mt-8 h-11 w-full rounded bg-sand-light"></div>
+          <div class="mt-3 h-4 w-1/6 rounded bg-sand"></div>
           <div class="mt-4 h-11 w-full rounded bg-sand-light"></div>
+          <div class="mt-3 h-4 w-1/6 rounded bg-sand"></div>
           <div class="mt-4 h-11 w-full rounded bg-sand-light"></div>
+          <div class="mt-3 h-4 w-1/6 rounded bg-sand"></div>
           <div class="mt-8 h-24 w-full rounded bg-sand-light"></div>
-          <div class="mt-8 h-11 w-44 rounded bg-rose/35"></div>
+          <div class="mt-8 h-11 w-full rounded bg-rose"></div>
         </div>
       </div>
 
