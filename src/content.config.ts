@@ -47,6 +47,7 @@ const services = defineCollection({
     items: z.array(z.string()),
     whoIsThisFor: z.string(),
     sessionDetails: z.array(z.object({ label: z.string(), value: z.string() })),
+    hidden: z.boolean().optional().default(false),
   }),
 });
 

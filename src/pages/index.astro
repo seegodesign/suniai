@@ -25,19 +25,6 @@ const homeServices = ORDER.map((id) => publishedServices.find((s) => s.id === id
     href: `/services/${s!.id}`,
   }));
 
-const allTestimonials = await getCollection("testimonials");
-const testimonialSlides = await Promise.all(
-  allTestimonials
-    .sort((a, b) => {
-      if (a.data.featured && !b.data.featured) return -1;
-      if (!a.data.featured && b.data.featured) return 1;
-      return a.data.name.localeCompare(b.data.name);
-    })
-    .map(async (entry) => {
-      const { Content } = await render(entry);
-      return { data: entry.data, Content };
-    }),
-);
 ---
 
 <Layout

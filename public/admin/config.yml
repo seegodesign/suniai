@@ -145,6 +145,7 @@ collections:
             fields:
               - { label: Label, name: label, widget: string }
               - { label: Value, name: value, widget: string }
+          - { label: Hide this service, name: hidden, widget: boolean, default: false, required: false, hint: "When enabled, this service won't appear in listings or navigation." }
       - name: group-coaching
         label: Group Mentorship & Workshops
         file: src/content/services/group-coaching.json
