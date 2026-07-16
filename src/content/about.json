@@ -1,0 +1,53 @@
+{
+  "title": "About",
+  "description": "Meet Capri, a Holy Motherhood Mentor and Womb Therapist supporting women through sacred, body-led healing.",
+  "heroEyebrow": "",
+  "heroHeading": "About Suniai",
+  "heroSubheading": "Suniai (ਸੁਣਿਐ) means “to truly listen.” It’s the practice of slowing down, tuning in, and hearing yourself—your body, your needs, your inner voice. Here, healing begins with being deeply heard.",
+  "heroImage": "https://images.unsplash.com/photo-1572203176799-40836603681d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "bioHeading": "Aloha, my name is Capri.",
+  "bioParagraphs": [
+    "Suniai is my heart-centered practice where I serve as a Holy Motherhood Mentor and Womb Therapist. I support women through sacred, body-led healing so they can reconnect to their intuition, restore their nervous system, and move through life from their inner authority."
+  ],
+  "credentialsHeading": "Credentials & Training",
+  "credentials": [
+    "Certified Holistic Life Coach — MindBodyFood Institute, 2026",
+    "Certified Mind-Body Practitioner — MindBodyFood Institute, 2026",
+    "Licensed Massage Therapist — East West College of the Healing Arts, 2017",
+    "Sacred Pelvic Healing Massage Training - Portland, OR 2018",
+    "Mana Lomi Level 3 Certification — Kona, Hawaii 2024",
+    "Usui Reiki Master Teacher Certification — Portland, OR 2014",
+    "Kundalini Yoga Teacher Certification — Hawaii 2021",
+    "Ancient Thai Massage Training — Pisac, Peru 2014",
+    "Temple of the Rose Initiation — Pisac, Peru 2014"
+  ],
+  "philosophyHeading": "My Philosophy",
+  "philosophyCards": [
+    {
+      "value": "Body as teacher",
+      "detail": "The body holds wisdom that the thinking mind cannot access. I help you learn to listen."
+    },
+    {
+      "value": "Whole-person care",
+      "detail": "You are not a problem to be solved, but a whole, complex, beautiful human to be witnessed."
+    },
+    {
+      "value": "Slowness as practice",
+      "detail": "Deep change rarely happens quickly. I create spaciousness for your process to unfold in its own time."
+    },
+    {
+      "value": "Non-judgment",
+      "detail": "This is a space free from should. What you feel, think, and experience is valid — always."
+    },
+    {
+      "value": "Integration",
+      "detail": "Insights are only as valuable as their integration into daily life. We build bridges between session and the everyday."
+    },
+    {
+      "value": "Nervous system first",
+      "detail": "Safety is the foundation of all real growth. We always work with regulated care, not urgency."
+    }
+  ],
+  "ctaLabel": "Work with Me",
+  "ctaHref": "/contact"
+}

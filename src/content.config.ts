@@ -64,6 +64,48 @@ const home = defineCollection({
     aboutHeading: z.string(),
     aboutBodies: z.array(z.string()).optional().default([]),
     servicesHeading: z.string(),
+    servicesIntro1: z.string().optional().default(''),
+    servicesIntro2: z.string().optional().default(''),
+    servicesIntro3: z.string().optional().default(''),
+    servicesCtaLabel: z.string().optional().default('Get support that fits your season'),
+    servicesCtaHref: z.string().optional().default('/contact'),
+  }),
+});
+
+const about = defineCollection({
+  loader: glob({ pattern: 'about.json', base: './src/content' }),
+  schema: z.object({
+    title: z.string().optional().default('About'),
+    description: z.string().optional().default(''),
+    heroEyebrow: z.string().optional().default(''),
+    heroHeading: z.string(),
+    heroSubheading: z.string(),
+    heroImage: z.string(),
+    bioHeading: z.string(),
+    bioParagraphs: z.array(z.string()).optional().default([]),
+    credentialsHeading: z.string(),
+    credentials: z.array(z.string()).optional().default([]),
+    philosophyHeading: z.string(),
+    philosophyCards: z.array(z.object({ value: z.string(), detail: z.string() })).optional().default([]),
+    ctaLabel: z.string(),
+    ctaHref: z.string().optional().default('/contact'),
+  }),
+});
+
+const site = defineCollection({
+  loader: glob({ pattern: 'site.json', base: './src/content' }),
+  schema: z.object({
+    brandName: z.string().optional().default('Suniai'),
+    footerDescription: z.string(),
+    footerLinks: z.array(z.object({ label: z.string(), href: z.string() })).optional().default([]),
+    footerHeading: z.string().optional().default('Get in Touch'),
+    footerEmail: z.string(),
+    footerNote: z.string(),
+    footerCtaLabel: z.string(),
+    footerCtaHref: z.string(),
+    footerCredential: z.string().optional().default(''),
+    footerCreditText: z.string().optional().default('Site built with love by'),
+    footerCreditHref: z.string().optional().default('https://seegodesign.com'),
   }),
 });
 
@@ -99,4 +141,4 @@ const servicesPage = defineCollection({
   }),
 });
 
-export const collections = { blog, testimonials, faq, services, home, contact, servicesPage };
+export const collections = { blog, testimonials, faq, services, home, about, site, contact, servicesPage };

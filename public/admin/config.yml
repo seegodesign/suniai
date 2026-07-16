@@ -37,6 +37,72 @@ collections:
               name: text
               widget: text
           - { label: Services section heading, name: servicesHeading, widget: string }
+          - { label: Services intro paragraph 1, name: servicesIntro1, widget: text }
+          - { label: Services intro paragraph 2, name: servicesIntro2, widget: text }
+          - { label: Services intro paragraph 3, name: servicesIntro3, widget: text }
+          - { label: Services CTA label, name: servicesCtaLabel, widget: string }
+          - { label: Services CTA link, name: servicesCtaHref, widget: string }
+  - name: about
+    label: About Page
+    files:
+      - name: about
+        label: About Page Content
+        file: src/content/about.json
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Meta description, name: description, widget: text }
+          - { label: Hero eyebrow, name: heroEyebrow, widget: string }
+          - { label: Hero heading, name: heroHeading, widget: string }
+          - { label: Hero subheading, name: heroSubheading, widget: text }
+          - { label: Hero image, name: heroImage, widget: image }
+          - { label: Bio heading, name: bioHeading, widget: string }
+          - label: Bio paragraphs
+            name: bioParagraphs
+            widget: list
+            field:
+              label: Paragraph
+              name: paragraph
+              widget: text
+          - { label: Credentials heading, name: credentialsHeading, widget: string }
+          - label: Credentials
+            name: credentials
+            widget: list
+            field:
+              label: Credential
+              name: credential
+              widget: string
+          - { label: Philosophy heading, name: philosophyHeading, widget: string }
+          - label: Philosophy cards
+            name: philosophyCards
+            widget: list
+            fields:
+              - { label: Value, name: value, widget: string }
+              - { label: Detail, name: detail, widget: text }
+          - { label: CTA label, name: ctaLabel, widget: string }
+          - { label: CTA link, name: ctaHref, widget: string }
+  - name: site
+    label: Site Settings
+    files:
+      - name: site
+        label: Footer & Site Copy
+        file: src/content/site.json
+        fields:
+          - { label: Brand name, name: brandName, widget: string }
+          - { label: Footer description, name: footerDescription, widget: text }
+          - label: Footer navigation links
+            name: footerLinks
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+          - { label: Footer contact heading, name: footerHeading, widget: string }
+          - { label: Footer email, name: footerEmail, widget: string }
+          - { label: Footer note, name: footerNote, widget: text }
+          - { label: Footer CTA label, name: footerCtaLabel, widget: string }
+          - { label: Footer CTA link, name: footerCtaHref, widget: string }
+          - { label: Footer credential, name: footerCredential, widget: string }
+          - { label: Footer credit text, name: footerCreditText, widget: string }
+          - { label: Footer credit link, name: footerCreditHref, widget: string }
   - name: contact
     label: Pages
     files:

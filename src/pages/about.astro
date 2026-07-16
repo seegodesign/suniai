@@ -2,19 +2,26 @@
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import { Image } from "astro:assets";
-import capriPortrait from "../assets/capri4.jpg";
+import { getEntry } from "astro:content";
+import capriPortrait from "../assets/capri6.jpg";
+
+const aboutEntry = await getEntry("about", "about");
+const about = aboutEntry!.data;
+const bioParagraphs = Array.isArray(about.bioParagraphs)
+  ? about.bioParagraphs.map((paragraph) => (typeof paragraph === "string" ? paragraph : paragraph?.paragraph || ""))
+  : [];
+const credentials = Array.isArray(about.credentials)
+  ? about.credentials.map((item) => (typeof item === "string" ? item : item?.credential || ""))
+  : [];
 ---
 
-<Layout
-  title="About"
-  description="Meet Capri, a Holy Motherhood Mentor and Womb Therapist supporting women through sacred, body-led healing."
->
+<Layout title={about.title} description={about.description}>
   <!-- Page hero -->
   <PageHero
-    eyebrow=""
-    heading="About Suniai"
-    subheading="Suniai (ਸੁਣਿਐ) means “to truly listen.” It’s the practice of slowing down, tuning in, and hearing yourself—your body, your needs, your inner voice. Here, healing begins with being deeply heard."
-    image="https://images.unsplash.com/photo-1572203176799-40836603681d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    eyebrow={about.heroEyebrow}
+    heading={about.heroHeading}
+    subheading={about.heroSubheading}
+    image={about.heroImage}
   />
 
   <!-- Bio section -->
@@ -33,16 +40,10 @@ import capriPortrait from "../assets/capri4.jpg";
     <!-- Bio text -->
     <div class="md:col-span-3">
       <h2 class="font-tangerine text-5xl text-bark mb-6">
-        Aloha, my name is Capri.
+        {about.bioHeading}
       </h2>
       <div class="text-bark/70 leading-relaxed [&>p+p]:mt-4">
-        <p>
-          Suniai is my heart-centered practice where I serve as a Holy
-          Motherhood Mentor and Womb Therapist. I support women through sacred,
-          body-led healing so they can reconnect to their intuition, restore
-          their nervous system, and move through life from their inner
-          authority.
-        </p>
+        {bioParagraphs.map((paragraph) => <p>{paragraph}</p>)}
       </div>
 
       <!-- Credentials -->
@@ -50,35 +51,23 @@ import capriPortrait from "../assets/capri4.jpg";
         <p
           class="text-xs font-semibold uppercase tracking-widest text-dark-rose mb-4"
         >
-          Credentials & Training
+          {about.credentialsHeading}
         </p>
         <ul class="space-y-2 text-sm text-bark/70">
-          {
-            [
-              "Certified Holistic Life Coach — MindBodyFood Institute, 2026",
-              "Certified Mind-Body Practitioner — MindBodyFood Institute, 2026",
-              "Licensed Massage Therapist — East West College of the Healing Arts, 2017",
-              "Sacred Pelvic Healing Massage Training - Portland, OR 2018",
-              "Mana Lomi Level 3 Certification — Kona, Hawaii 2024",
-              "Usui Reiki Master Teacher Certification — Portland, OR 2014",
-              "Kundalini Yoga Teacher Certification — Hawaii 2021",
-              "Ancient Thai Massage Training — Pisac, Peru 2014",
-              "Temple of the Rose Initiation — Pisac, Peru 2014",
-            ].map((item) => (
-              <li class="flex items-start gap-3">
-                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-dark-rose shrink-0" />
-                {item}
-              </li>
-            ))
-          }
+          {credentials.map((item) => (
+            <li class="flex items-start gap-3">
+              <span class="mt-1 w-1.5 h-1.5 rounded-full bg-dark-rose shrink-0" />
+              {item}
+            </li>
+          ))}
         </ul>
       </div>
 
       <a
-        href="/contact"
+        href={about.ctaHref}
         class="inline-block mt-10 px-8 py-3 bg-dark-rose text-cream font-medium rounded-full hover:bg-bark transition-colors"
       >
-        Work with Me
+        {about.ctaLabel}
       </a>
     </div>
   </section>
@@ -87,48 +76,15 @@ import capriPortrait from "../assets/capri4.jpg";
   <section class="bg-peaches-n-cream py-20">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="font-tangerine text-6xl text-bark text-center mb-14">
-        My Philosophy
+        {about.philosophyHeading}
       </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {
-          [
-            {
-              value: "Body as teacher",
-              detail:
-                "The body holds wisdom that the thinking mind cannot access. I help you learn to listen.",
-            },
-            {
-              value: "Whole-person care",
-              detail:
-                "You are not a problem to be solved, but a whole, complex, beautiful human to be witnessed.",
-            },
-            {
-              value: "Slowness as practice",
-              detail:
-                "Deep change rarely happens quickly. I create spaciousness for your process to unfold in its own time.",
-            },
-            {
-              value: "Non-judgment",
-              detail:
-                "This is a space free from should. What you feel, think, and experience is valid — always.",
-            },
-            {
-              value: "Integration",
-              detail:
-                "Insights are only as valuable as their integration into daily life. We build bridges between session and the everyday.",
-            },
-            {
-              value: "Nervous system first",
-              detail:
-                "Safety is the foundation of all real growth. We always work with regulated care, not urgency.",
-            },
-          ].map(({ value, detail }) => (
-            <div class="bg-cream rounded-2xl p-6 border border-sand">
-              <h3 class="font-tangerine text-4xl text-bark mb-3">{value}</h3>
-              <p class="text-sm text-bark/60 leading-relaxed">{detail}</p>
-            </div>
-          ))
-        }
+        {about.philosophyCards.map(({ value, detail }) => (
+          <div class="bg-cream rounded-2xl p-6 border border-sand">
+            <h3 class="font-tangerine text-4xl text-bark mb-3">{value}</h3>
+            <p class="text-sm text-bark/60 leading-relaxed">{detail}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

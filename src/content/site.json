@@ -1,0 +1,20 @@
+{
+  "brandName": "Suniai",
+  "footerDescription": "Holistic mentorship, mind-body work, and therapeutic massage — helping you return to yourself.",
+  "footerLinks": [
+    { "label": "About", "href": "/about" },
+    { "label": "Services", "href": "/services" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "Testimonials", "href": "/testimonials" },
+    { "label": "FAQ", "href": "/faq" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "footerHeading": "Get in Touch",
+  "footerEmail": "capri@suniai.one",
+  "footerNote": "Sessions available in-person and online.",
+  "footerCtaLabel": "Book a Session",
+  "footerCtaHref": "/contact",
+  "footerCredential": "Registered Massage Therapist · MAT #16796",
+  "footerCreditText": "Site built with love by",
+  "footerCreditHref": "https://seegodesign.com"
+}

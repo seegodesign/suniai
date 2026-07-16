@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import capriPortrait from "../assets/capri.jpg";
-import capriPortrait2 from "../assets/capri5.jpg";
+import capriPortrait2 from "../assets/capri6.jpg";
 import { getCollection, getEntry, render } from "astro:content";
 
 const homeEntry = await getEntry("home", "home");
@@ -183,23 +183,19 @@ const homeServices = ORDER.map((id) => publishedServices.find((s) => s.id === id
 
         <div class="lg:col-span-2 text-bark/75 mt-8">
           <p class="text-md leading-relaxed mb-6">
-            Each offering is designed to meet you where you are. Some days you may
-            need gentle bodywork, some seasons call for deeper womb healing, and
-            other moments ask for clear, grounded mentorship.
+            {home.servicesIntro1}
           </p>
           <p class="text-md leading-relaxed mb-6">
-            This work is not one-size-fits-all. We listen to what your body and life
-            are asking for, then choose the most supportive path for this chapter.
+            {home.servicesIntro2}
           </p>
           <p class="text-md leading-relaxed mb-8">
-            If you are unsure where to begin, we can start with a conversation and
-            find the right fit together.
+            {home.servicesIntro3}
           </p>
           <a
-            href="/contact"
+            href={home.servicesCtaHref}
             class="inline-flex items-center gap-2 text-dark-rose font-medium hover:gap-3 transition-all"
           >
-            Get support that fits your season
+            {home.servicesCtaLabel}
             <svg
               class="w-4 h-4"
               fill="none"

@@ -1,12 +1,8 @@
 ---
-const footerLinks = [
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Blog", href: "/blog" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
-];
+import { getEntry } from "astro:content";
+
+const siteEntry = await getEntry("site", "site");
+const site = siteEntry!.data;
 ---
 
 <footer class="bg-bark text-cream/80">
@@ -14,10 +10,9 @@ const footerLinks = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
       <!-- Brand column -->
       <div>
-        <p class="font-tangerine text-6xl text-cream mb-3">Suniai</p>
+        <p class="font-tangerine text-6xl text-cream mb-3">{site.brandName}</p>
         <p class="text-sm leading-relaxed text-cream/60">
-          Holistic mentorship, mind-body work, and therapeutic massage —
-          helping you return to yourself.
+          {site.footerDescription}
         </p>
       </div>
 
@@ -29,18 +24,16 @@ const footerLinks = [
           Navigation
         </p>
         <ul class="space-y-2">
-          {
-            footerLinks.map(({ label, href }) => (
-              <li>
-                <a
-                  href={href}
-                  class="text-sm text-cream/70 hover:text-dark-rose transition-colors"
-                >
-                  {label}
-                </a>
-              </li>
-            ))
-          }
+          {site.footerLinks.map(({ label, href }) => (
+            <li>
+              <a
+                href={href}
+                class="text-sm text-cream/70 hover:text-dark-rose transition-colors"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -49,22 +42,22 @@ const footerLinks = [
         <p
           class="text-xs font-semibold uppercase tracking-widest text-cream/40 mb-4"
         >
-          Get in Touch
+          {site.footerHeading}
         </p>
         <a
-          href="mailto:capri@suniai.one"
+          href={`mailto:${site.footerEmail}`}
           class="text-sm text-cream/70 hover:text-dark-rose transition-colors"
         >
-          capri@suniai.one
+          {site.footerEmail}
         </a>
         <p class="mt-4 text-sm text-cream/60">
-          Sessions available in-person and online.
+          {site.footerNote}
         </p>
         <a
-          href="/contact"
+          href={site.footerCtaHref}
           class="inline-block mt-5 px-6 py-2.5 border border-dark-rose text-dark-rose text-sm font-medium rounded-full hover:bg-dark-rose hover:text-cream transition-colors"
         >
-          Book a Session
+          {site.footerCtaLabel}
         </a>
       </div>
     </div>
@@ -73,11 +66,14 @@ const footerLinks = [
     <div
       class="border-t border-cream/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-cream/30"
     >
-      <p>&copy; {new Date().getFullYear()} Suniai. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} {site.brandName}. All rights reserved.</p>
+      <p>{site.footerCredential}</p>
       <p>
-        Registered Massage Therapist · MAT #<span class="text-cream/40">16796</span>
+        {site.footerCreditText}{' '}
+        <a href={site.footerCreditHref} target="_blank" rel="noopener noreferrer">
+          Seego Design
+        </a>
       </p>
-      <p>Site built with love by <a href="https://seegodesign.com" target="_blank" rel="noopener noreferrer">Seego Design</a>.</p>
     </div>
   </div>
 </footer>
