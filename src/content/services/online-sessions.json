@@ -13,10 +13,23 @@
     "Mindfulness and presence practices",
     "Group workshops (select sessions)"
   ],
-  "whoIsThisFor": "A quiet, private space. A good internet connection. A device with a camera and microphone. And an open, curious mind — everything else, we create together.",
+  "whoIsThisFor": "A quiet, private space. A good internet connection. A device with a camera and microphone. And an open-heart.",
   "sessionDetails": [
-    { "label": "Platform", "value": "Zoom / Google Meet" },
-    { "label": "Duration", "value": "60 minutes" },
-    { "label": "Timezone", "value": "Flexible" }
+    {
+      "label": "Platform",
+      "value": "Zoom / Google Meet"
+    },
+    {
+      "label": "Duration",
+      "value": "60 minutes"
+    },
+    {
+      "label": "Investment",
+      "value": "$185 per session"
+    },
+    {
+      "label": "Timezone",
+      "value": "Flexible"
+    }
   ]
 }
