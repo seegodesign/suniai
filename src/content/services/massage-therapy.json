@@ -18,7 +18,7 @@
   "sessionDetails": [
     {
       "label": "Duration",
-      "value": "60 or 90 minutes"
+      "value": "90 or 120 minutes"
     },
     {
       "label": "Format",
@@ -26,7 +26,7 @@
     },
     {
       "label": "Location",
-      "value": "Anywhere in Kauai"
+      "value": "The island of Kaua'i"
     }
   ]
 }
