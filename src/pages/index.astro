@@ -32,7 +32,7 @@ const homeServices = ORDER.map((id) => publishedServices.find((s) => s.id === id
 >
   <!-- Hero -->
   <section
-    class="relative min-h-[93vh] flex items-center justify-center overflow-hidden"
+    class="relative h-[calc(100dvh-7.0625rem)] overflow-hidden"
   >
     <!-- Background video -->
     <video
@@ -47,22 +47,24 @@ const homeServices = ORDER.map((id) => publishedServices.find((s) => s.id === id
     </video>
     <!-- tinted overlay -->
     <div class="absolute inset-0 bg-dark-rose/70"></div>
+    <!-- bottom contrast gradient -->
+    <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#69404f]/90 via-[#8f5868]/50 to-transparent"></div>
 
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <div class="absolute inset-x-0 bottom-0 z-10 mx-auto flex max-w-3xl flex-col items-center px-6 pb-16 text-center md:pb-20">
+      <h1 class="mb-6 max-w-sm text-balance font-tangerine text-4xl leading-[1.1] text-cream md:max-w-none md:whitespace-nowrap md:text-[clamp(2rem,4vw,4rem)] md:leading-[1.35]">
+        {home.heroHeading}
+      </h1>
       <p
         class="text-sm font-medium tracking-[0.2em] uppercase text-white mb-6 opacity-50"
       >
         {home.heroEyebrow}
       </p>
-      <h1
-        class="font-tangerine text-5xl md:text-8xl text-cream leading-tight mb-8"
-      >
-        {home.heroHeading}
-      </h1>
-      <p class="text-lg text-cream/80 leading-relaxed max-w-xl mx-auto mb-10">
-        {home.heroBody}
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      {home.heroBody && (
+        <p class="text-lg text-cream/80 leading-relaxed max-w-xl mx-auto mb-10">
+          {home.heroBody}
+        </p>
+      )}
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a
           href={home.heroCta1Href}
           class="px-8 py-3.5 bg-white border border-cream/50 text-dark-rose font-medium rounded-full hover:bg-rose hover:text-white transition-colors"

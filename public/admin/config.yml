@@ -20,28 +20,30 @@ collections:
         label: Home Page Content
         file: src/content/home.json
         fields:
-          - { label: Hero eyebrow text, name: heroEyebrow, widget: string }
-          - { label: Hero heading, name: heroHeading, widget: string }
-          - { label: Hero body text, name: heroBody, widget: text }
-          - { label: 'CTA button 1 — label', name: heroCta1Label, widget: string }
-          - { label: 'CTA button 1 — link', name: heroCta1Href, widget: string }
-          - { label: 'CTA button 2 — label', name: heroCta2Label, widget: string }
-          - { label: 'CTA button 2 — link', name: heroCta2Href, widget: string }
-          - { label: About heading, name: aboutHeading, widget: string }
+          - { label: Hero eyebrow text, name: heroEyebrow, widget: string, required: false }
+          - { label: Hero heading, name: heroHeading, widget: string, required: false }
+          - { label: Hero body text, name: heroBody, widget: text, required: false }
+          - { label: 'CTA button 1 — label', name: heroCta1Label, widget: string, required: false }
+          - { label: 'CTA button 1 — link', name: heroCta1Href, widget: string, required: false }
+          - { label: 'CTA button 2 — label', name: heroCta2Label, widget: string, required: false }
+          - { label: 'CTA button 2 — link', name: heroCta2Href, widget: string, required: false }
+          - { label: About heading, name: aboutHeading, widget: string, required: false }
           - label: About paragraphs
             name: aboutBodies
             widget: list
+            required: false
             summary: '{{fields.text}}'
             field:
               label: Paragraph
               name: text
               widget: text
-          - { label: Services section heading, name: servicesHeading, widget: string }
-          - { label: Services intro paragraph 1, name: servicesIntro1, widget: text }
-          - { label: Services intro paragraph 2, name: servicesIntro2, widget: text }
-          - { label: Services intro paragraph 3, name: servicesIntro3, widget: text }
-          - { label: Services CTA label, name: servicesCtaLabel, widget: string }
-          - { label: Services CTA link, name: servicesCtaHref, widget: string }
+              required: false
+          - { label: Services section heading, name: servicesHeading, widget: string, required: false }
+          - { label: Services intro paragraph 1, name: servicesIntro1, widget: text, required: false }
+          - { label: Services intro paragraph 2, name: servicesIntro2, widget: text, required: false }
+          - { label: Services intro paragraph 3, name: servicesIntro3, widget: text, required: false }
+          - { label: Services CTA label, name: servicesCtaLabel, widget: string, required: false }
+          - { label: Services CTA link, name: servicesCtaHref, widget: string, required: false }
   - name: about
     label: About Page
     files:
@@ -165,7 +167,7 @@ collections:
     format: frontmatter
     fields:
       - { label: Name, name: name, widget: string }
-      - { label: Service, name: service, widget: select, options: ["Mentorship", "Group Workshop", "Massage Therapy", "Womb Therapy", "Online Sessions"] }
+      - { label: Service, name: service, widget: select, options: ["Mentorship", "Group Workshop", "Ritual Bodywork", "Womb Therapy", "Online Sessions"] }
       - { label: Featured, name: featured, widget: boolean, default: false, hint: "Featured testimonials appear highlighted in dark cards" }
       - { label: Photo, name: photo, widget: image, required: false, hint: "Small circular portrait shown on the card" }
       - { label: Quote, name: body, widget: markdown, hint: "The testimonial content. Supports bold, italic, and paragraphs." }
@@ -181,7 +183,7 @@ collections:
     fields:
       - { label: Question, name: question, widget: string }
       - { label: Answer, name: answer, widget: text }
-      - { label: Category, name: category, widget: select, options: ["Getting Started", "Mentorship", "Massage Therapy", "Practical"] }
+      - { label: Category, name: category, widget: select, options: ["Getting Started", "Mentorship", "Ritual Bodywork", "Practical"] }
       - { label: Order, name: order, widget: number, default: 10, hint: "Lower numbers appear first within a category" }
 
   - name: services
@@ -217,7 +219,7 @@ collections:
         file: src/content/services/group-coaching.json
         fields: *fields
       - name: massage-therapy
-        label: Massage Therapy
+        label: Ritual Bodywork
         file: src/content/services/massage-therapy.json
         fields: *fields
       - name: womb-therapy

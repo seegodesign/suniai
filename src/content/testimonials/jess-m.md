@@ -1,6 +1,6 @@
 ---
 name: Jess M.
-service: Massage Therapy
+service: Ritual Bodywork
 featured: false
 ---
 **Capri is an absolute gem. The best massage I’ve ever received.**

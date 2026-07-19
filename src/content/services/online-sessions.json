@@ -17,7 +17,6 @@
   "sessionDetails": [
     { "label": "Platform", "value": "Zoom / Google Meet" },
     { "label": "Duration", "value": "60 minutes" },
-    { "label": "Investment", "value": "$185 per session" },
     { "label": "Timezone", "value": "Flexible" }
   ]
 }
