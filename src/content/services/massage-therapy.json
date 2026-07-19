@@ -1,24 +1,24 @@
 {
-  "title": "Ritual Bodywork",
+  "title": "Massage Therapy",
   "heroImage": "/images/massage.webp",
   "tagline": "Therapeutic touch that meets your body exactly where it is.",
   "descriptionHeading": "About the massage work",
-  "description1": "My approach to massage is deeply intuitive and client-led. I believe that the body holds its own wisdom, and my role is to listen and respond to what it needs in each moment. Whether you’re seeking relief from physical tension, emotional release, or simply a nurturing space to reconnect with your body, this work is designed to meet you where you are and support your unique needs. I draw from a variety of techniques — including Swedish massage, deep tissue work, myofascial release, trigger point therapy, lymphatic drainage, and restorative touch — tailoring each session to your specific goals and preferences.",
-  "description2": "I integrate breathwork, somatic awareness, and intention-setting into each session to enhance the therapeutic benefits and support holistic well-being.",
+  "description1": "My approach to massage is slow and deeply therapeutic. \n\nThrough the art of Suniai, I listen with my heart to the story your body is expressing through physical discomfort . I am guided by the whispers in your bones. We will go on a journey that my clients have described as \"soul retrieval work.\" It is my prayer that you leave our session feeling restored on a cellular level. \n\nI believe that the body is a temple for us to tend to as a sanctuary we invite God to reside. \n\nWhether you’re seeking relief from physical tension, emotional release, or simply a nurturing space to reconnect with your body, this work is designed to facilitate healing. I draw from a variety of techniques — including  Lomi Lomi, deep tissue, trauma informed, trigger point therapy, Thai massage, and energy healing — crafting each journey to meet you exactly where you are.",
+  "description2": "I integrate breathwork, somatic awareness, and intention-setting into each session to enhance the therapeutic benefits and support holistic well-being.\n\nIf you desire a special woven experience of coaching and bodywork, please inquire for the experience!",
   "itemsHeading": "Techniques & modalities",
   "items": [
-    "Swedish/relaxation massage",
-    "Deep tissue work",
-    "Myofascial release",
+    "Lomi Lomi",
+    "Prenatal/ Happy",
+    "Deep Tissue",
     "Trigger point therapy",
-    "Lymphatic drainage",
-    "Restorative / nervous-system focused touch"
+    "Thai Massage",
+    "Energy Healing"
   ],
-  "whoIsThisFor": "Massage for women at all stages of life, from pregnancy to menopause and beyond. Whether you’re seeking relief from physical tension, emotional release, or simply a nurturing space to reconnect with your body, this work is designed to meet you where you are and support your unique needs.",
+  "whoIsThisFor": "Whether you’re seeking relief from physical tension, emotional release, or simply a nurturing space to reconnect with your body, this work is designed to meet you where you are and support your unique needs.",
   "sessionDetails": [
     {
       "label": "Duration",
-      "value": "90 or 120 minutes"
+      "value": "90 or 120min"
     },
     {
       "label": "Format",
@@ -26,7 +26,7 @@
     },
     {
       "label": "Location",
-      "value": "The island of Kaua'i"
+      "value": "Anywhere in Kauai"
     }
   ]
 }
