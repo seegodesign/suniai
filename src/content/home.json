@@ -1,7 +1,7 @@
 {
-  "heroEyebrow": "Holy Motherhood Mentorship ~ Womb Therapy ~ Ritual Bodywork",
-  "heroHeading": "Come Home to Your Body & Embody Your Soul",
-  "heroBody": "",
+  "heroEyebrow": "Holy Motherhood Mentorship • Womb Therapy • Ritual Bodywork",
+  "heroHeading": "Come Home to Your Body and Embody Your Soul",
+  "heroBody": "Welcome Home",
   "heroCta1Label": "Book a Session",
   "heroCta1Href": "/contact",
   "heroCta2Label": "Explore Services",
@@ -16,10 +16,5 @@
     "Within this space, time softens. The nervous system unwinds, the mind quiets, and something deeper begins to awaken. \n\nThese sessions bring nourishment on a cellular and soul level. It is an honor to carry this medicine.",
     "May you be held, nourished and restored daily.\n\nIn Joy,\nCapri"
   ],
-  "servicesHeading": "My Offerings",
-  "servicesIntro1": "Each offering is designed to meet you where you are. Some days you may need gentle bodywork, some seasons call for deeper womb healing, and other moments ask for clear, grounded mentorship.",
-  "servicesIntro2": "This work is not one-size-fits-all. We listen to what your body and life are asking for, then choose the most supportive path for this chapter.",
-  "servicesIntro3": "If you are unsure where to begin, we can start with a conversation and find the right fit together.",
-  "servicesCtaLabel": "Get support that fits your season",
-  "servicesCtaHref": "/contact"
+  "servicesHeading": "My Offerings"
 }
